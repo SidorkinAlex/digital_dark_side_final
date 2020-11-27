@@ -1,0 +1,112 @@
+.stages-panel {
+  display: flex;
+  width: 100%;
+  font-size: 0.75em;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
+    min-height: 40px;
+    padding: 0.5em 1em;
+    box-sizing: border-box;
+    border: 1px solid #c0c4cc;
+    border-right: none;
+    cursor: pointer;
+    overflow: hidden;
+    text-align: center;
+    background: #eaeaea;
+    margin: 0;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+
+    &.no-focus {
+      cursor: default;
+    }
+
+    .el-icon-warning {
+      width: 100%;
+      font-size: 20px;
+    }
+
+    &--grid {
+      grid-template-columns: 1fr 0fr;
+      display: grid;
+    }
+
+    &:first-child {
+      border-bottom-left-radius: 0.25rem;
+      border-top-left-radius: 0.25rem;
+    }
+
+    &:last-child {
+      border-bottom-right-radius: 0.25rem;
+      border-top-right-radius: 0.25rem;
+      border-right: 1px solid #c0c4cc;
+    }
+
+    &_active {
+      color: #ffffff;
+    }
+  }
+
+  &__label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 25px;
+  }
+
+  &__input {
+    position: fixed;
+    left: -1000px;
+    opacity: 0;
+  }
+
+  &__date {
+    margin-top: 4px;
+    font-size: 10px;
+  }
+
+  img {
+    max-height: 25px;
+    margin: 0 auto;
+  }
+
+  &__dropdown {
+    border: 1px solid #c0c4cc;
+    border-right: none;
+    cursor: pointer;
+    overflow: hidden;
+    flex: 1;
+
+    &:first-child {
+      border-bottom-left-radius: 0.25rem;
+      border-top-left-radius: 0.25rem;
+    }
+
+    &:last-child {
+      border-bottom-right-radius: 0.25rem;
+      border-top-right-radius: 0.25rem;
+      border-right: 1px solid #c0c4cc;
+    }
+  }
+
+  &__candidate-link {
+    text-decoration: none;
+  }
+
+  .el-tag--mini {
+    // width: 18px;
+    // min-width: 15px;
+    text-align: center;
+    padding: 0 3px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+}

@@ -1,0 +1,48 @@
+$KEPPEL: #3891a6;
+$FELDGRAU: #4c5b5c;
+$GARGOYLE_GAS: #fde74c;
+$DARK_TERRA_COTTA: #db5461;
+$TERRA_COTTA: #e3655b;
+$MANDARIN: #ef7b45;
+$TEA_ROSE: #f08377;
+$MISTY_ROSE: #fce7dd;
+
+$HAN_PURPLE: #5e2bff;
+$VIRIDIAN_GREEN: #068d9d;
+$VERDIGRIS: #44bba4;
+$MEDIUM_ORCHID: #c04cfd;
+$FRENCH_PINK: #fc6dab;
+$BLOND: #f7f6c5;
+$BEIGE: #f3fae1;
+$JET: #303633;
+$PALE_LAVANDER: #dad4ef;
+$ASPARAGUS: #8bb174;
+$MAGIC_MINT: #abedc6;
+$WHITE_SMOKE: #fefefe;
+$WHITE: #fefefe;
+
+$whatsapp-color: #25d366;
+
+$primary-color: $TEA_ROSE;
+$secondary-color: $PALE_LAVANDER;
+$danger-color: $DARK_TERRA_COTTA;
+$success-color: $ASPARAGUS;
+$info-color: $VERDIGRIS;
+$alert-color: $GARGOYLE_GAS;
+$black-color: $JET;
+$dark-color: $FELDGRAU;
+$white-color: $WHITE_SMOKE;
+
+$colors: (
+  primary: $primary-color,
+  secondary: $secondary-color,
+  danger: $danger-color,
+  success: $success-color,
+  info: $info-color,
+  alert: $alert-color,
+  dark: $dark-color,
+  white: $white-color
+);
+
+//Table colors
+$table-item-left-bg: $MISTY_ROSE;

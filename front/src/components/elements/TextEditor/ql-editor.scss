@@ -1,0 +1,93 @@
+.el-form {
+  .ql-editor {
+    overflow: hidden;
+
+    &-container {
+      .el-form-item__content {
+        line-height: 18px;
+      }
+
+      .ql-container {
+        padding: 0;
+        height: auto;
+      }
+
+      .el-input__count {
+        position: absolute;
+        bottom: 2px;
+        background: #ffffff;
+        right: 20px;
+        z-index: 1;
+      }
+
+      .ql-snow {
+        .ql-toolbar button,
+        &.ql-toolbar button {
+          width: 18px;
+          height: 18px;
+          padding: 0;
+          margin-right: 3px;
+        }
+
+        .ql-toolbar button svg,
+        &.ql-toolbar button svg {
+          width: 18px;
+          height: 18px;
+        }
+
+        &.ql-toolbar {
+          border-radius: 4px;
+
+          .ql-formats {
+            margin: 0px;
+          }
+        } 
+
+        .ql-bold,
+        .ql-italic {
+          margin-top: -1px;
+        }
+
+        .ql-picker {
+          height: 18px;
+
+          &:not(.ql-background) {
+            top: 0;
+          }
+
+          &.ql-background {
+            top: -2px;
+          }
+
+          &.ql-color-picker svg {
+            width: 18px !important;
+            height: 18px !important;
+          }
+
+          &-options {
+            font-size: 12px;
+
+            .ql-picker-item {
+              padding-top: 0;
+            }
+          }
+        }
+
+        .ql-color-picker,
+        .ql-icon-picker {
+          width: 18px;
+          margin-right: 3px;
+
+          .ql-picker-label {
+            padding: 0;
+          }
+        } 
+      }
+    }
+  }
+
+  .quillWrapper ~ .el-form-item__error {
+    top: unset;
+    margin-top: -100px;
+  }
+}

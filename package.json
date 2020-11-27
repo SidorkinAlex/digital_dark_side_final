@@ -1,0 +1,47 @@
+{
+  "name": "hrcrm",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "build-bundle": "vue-cli-service build src/build.js",
+    "build-lib": "vue-cli-service build --target lib --name CRMSuite src/build.js",
+    "build-comp": "vue-cli-service build --target wc --name s-table src/build.js"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-brands-svg-icons": "^5.12.1",
+    "@fortawesome/free-regular-svg-icons": "^5.12.1",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@fortawesome/vue-fontawesome": "^0.1.9",
+    "axios": "^0.19.0",
+    "core-js": "^3.3.2",
+    "element-ui": "^2.12.0",
+    "moment": "^2.27.0",
+    "tinymce": "^4.7.7",
+    "vue": "^2.6.10",
+    "vue-the-mask": "^0.11.1",
+    "vue2-editor": "^2.10.2",
+    "vuedraggable": "^2.23.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.0.0",
+    "@vue/cli-plugin-eslint": "^4.0.0",
+    "@vue/cli-service": "^4.0.0",
+    "@vue/eslint-config-prettier": "^5.0.0",
+    "babel-eslint": "^10.0.3",
+    "babel-plugin-component": "^1.1.1",
+    "element-theme-chalk": "^2.12.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-vue": "^5.0.0",
+    "node-sass": "^4.12.0",
+    "prettier": "^1.18.2",
+    "sass-loader": "^8.0.0",
+    "stylelint": "^12.0.0",
+    "stylelint-webpack-plugin": "^1.1.2",
+    "vue-template-compiler": "^2.6.10"
+  }
+}

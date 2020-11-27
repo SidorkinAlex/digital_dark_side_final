@@ -1,0 +1,47 @@
+@mixin text-color($name, $color) {
+  .#{$name}-color {
+    color: $color;
+  }
+
+  .#{$name}-color-hover {
+    color: rgba($color, 0.8);
+  }
+
+  .#{$name}-color-active {
+    color: rgba($color, 0.9);
+  }
+}
+
+@mixin bg-color($name, $color) {
+  .#{$name}-bg {
+    background: $color;
+  }
+
+  .#{$name}-bg-hover {
+    background: rgba($color, 0.8);
+  }
+
+  .#{$name}-bg-active {
+    background: rgba($color, 0.9);
+  }
+}
+
+@mixin border-color($name, $color) {
+  .#{$name}-border {
+    border: 1px solid $color;
+  }
+}
+
+@mixin link-color($name, $color) {
+  .#{$name}-link {
+    @extend .color-inherit;
+
+    &:hover {
+      @extend .#{$name}-color-hover;
+    }
+
+    &:active {
+      @extend .#{$name}-color-active;
+    }
+  }
+}

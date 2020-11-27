@@ -1,0 +1,133 @@
+.s-comment {
+  display: flex;
+  min-height: 100px;
+  position: relative;
+
+  &__avatar {
+    width: 75px;
+    min-width: 75px;
+    margin-right: 1em;
+    text-align: center;
+  }
+
+  &__main {
+    flex: 1;
+  }
+
+  &__name {
+    margin-bottom: 0.5em;
+  }
+
+  &__name-link {
+    // text-decoration: underline;
+    font-size: 1em;
+  }
+
+  &__date {
+    margin-top: 1em;
+    font-style: italic;
+    font-size: 0.75em;
+  }
+
+  &__view {
+    position: relative;
+    top: 2px;
+    left: 7px;
+    font-size: 14px;
+    color: #c0c4cc;
+  }
+
+  &-form {
+    margin-bottom: 25px;
+    border: none;
+    padding: 0;
+
+    .el-form-item {
+      margin: 0;
+
+      &__label {
+        float: none;
+        margin-top: 0;
+      }
+    }
+
+    .control-panel > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 15px;
+
+      &:before,
+      &:after {
+        content: unset;
+      }
+
+      @media screen and (max-width: 1000px) {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+    }
+
+    .inline-buttons {
+      margin: 0;
+    }
+
+    .el-checkbox {
+      margin-bottom: 0;
+      line-height: 18px;
+
+      &__label {
+        font-size: 12px;
+      }
+    }
+
+    button {
+      padding: 10px;
+      font-size: 12px;
+    }
+  }
+
+  &__value {
+    max-height: 81px;
+    overflow-y: hidden;
+
+    &_height_full {
+      max-height: unset;
+      overflow-y: auto;
+    }
+
+    p {
+      font-size: 12px;
+    }
+
+    * {
+      white-space: normal !important;
+      display: table-row;
+      word-break: break-word;
+      margin-left: 0 !important;
+      padding-left: 0 !important;
+    }
+  }
+
+  &__icons {
+    position: absolute;
+    right: 0;
+    top: 4px;
+    height: 100%;
+  }
+
+  &__link {
+    position: absolute;
+    font-size: 12px;
+    border-bottom: 1px solid;
+    background: #fff;
+    bottom: 15px;
+    right: 0;
+    cursor: pointer;
+    white-space: nowrap;
+
+    &:hover {
+      background: #e5f7ff;
+    }
+  }
+}

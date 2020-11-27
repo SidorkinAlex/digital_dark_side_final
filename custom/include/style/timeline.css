@@ -1,0 +1,299 @@
+.cd-horizontal-timeline {
+	opacity: 1;
+	/* margin: 0 auto; */
+	margin: 0 !important;
+	transition: opacity 0.2s;
+}
+.cd-horizontal-timeline ol,
+.cd-horizontal-timeline ul {
+	list-style: none;
+	margin-top: 0;
+	padding-left: 0;
+	margin-bottom: 10px;		
+}
+.cd-horizontal-timeline::before {
+	content: 'mobile';
+	display: none;
+}
+.cd-horizontal-timeline.loaded {
+	opacity: 1;
+}
+.cd-horizontal-timeline .timeline {
+	position: relative;
+	height: 100px;
+	width: 90%;
+	max-width: 800px;
+	margin: 0 auto;
+}
+.cd-horizontal-timeline .events-wrapper {
+	position: relative;
+	height: 100%;
+	margin: 0 20px;
+	overflow: hidden;
+}
+.cd-horizontal-timeline .events-wrapper::after, 
+.cd-horizontal-timeline .events-wrapper::before {
+	content: '';
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	height: 100%;
+	width: 20px;
+}
+.cd-horizontal-timeline .events-wrapper::before {
+	left: 0;
+	background-image: linear-gradient(to right, #FFF, rgba(248, 248, 248, 0));
+}
+.cd-horizontal-timeline .events-wrapper::after {
+	right: 0;
+	background-image: linear-gradient(to left, #FFF, rgba(248, 248, 248, 0));
+}
+.cd-horizontal-timeline .events {
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	top: 47px;
+	height: 6px;
+	background: #BFE2FF;
+	transition: transform 0.4s;
+}
+.cd-horizontal-timeline .filling-line {
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: #337AB7;
+	transform: scaleX(0);
+	transform-origin: left center;
+	transition: transform 0.3s;
+}
+.cd-horizontal-timeline .events a {
+	position: absolute;
+	bottom: 0;
+	z-index: 2;
+	text-align: center;
+	font-size: 13px;
+	padding-bottom: 15px;
+	color: #383838;
+	transform: translateZ(0);
+}
+.cd-horizontal-timeline .events a::after {
+	content: '';
+	position: absolute;
+	left: 50%;
+	right: auto;
+	transform: translateX(-50%);
+	bottom: -5px;
+	height: 14px;
+	width: 14px;
+	border-radius: 50%;
+	border: 2px solid #BFE2FF;
+	background-color: #FFF;
+	transition: background-color 0.3s, border-color 0.3s;
+}
+.no-touch .cd-horizontal-timeline .events a:hover::after {
+	background-color: #337AB7;
+	border-color: #337AB7;
+}
+.cd-horizontal-timeline .events a.selected {
+	pointer-events: none;
+}
+.cd-horizontal-timeline .events a.selected::after {
+	background-color: #337AB7;
+	border-color: #337AB7;
+}
+.cd-horizontal-timeline .events a.older-event::after {
+	border-color: #337AB7;
+}
+@media only screen and (min-width: 1100px) {
+	.cd-horizontal-timeline {
+		margin: 0 auto;
+	}
+	.cd-horizontal-timeline::before {
+		content: 'desktop';
+	}
+}
+.cd-timeline-navigation {
+	list-style:none;
+}
+.cd-timeline-navigation a {
+	position: absolute;
+	z-index: 6;
+	top: 50%;
+	background: #FFF;
+	bottom: auto;
+	transform: translateY(-50%);
+	height: 34px;
+	width: 34px;
+	border-radius: 50%;
+	border: 4px solid #BFE2FF;
+	overflow: hidden;
+	color: transparent;
+	text-indent: 100%;
+	white-space: nowrap;
+	transition: border-color 0.3s;
+}
+.cd-timeline-navigation a::after {
+	content: '';
+	position: absolute;
+	height: 16px;
+	width: 16px;
+	left: 50%;
+	top: 50%;
+	bottom: auto;
+	right: auto;
+	transform: translateX(-50%) translateY(-50%);
+	background: url(/custom/include/img/cd-arrow.svg) no-repeat 0 0;
+}
+.cd-timeline-navigation a.prev {
+	left: 0;
+	transform: translateY(-50%) rotate(180deg);
+}
+.cd-timeline-navigation a.next {
+	right: 0;
+}
+.no-touch .cd-timeline-navigation a:hover {
+	border-color: #337AB7;
+}
+.cd-timeline-navigation a.inactive {
+	cursor: not-allowed;
+}
+.cd-timeline-navigation a.inactive::after {
+	background-position: 0 -16px;
+}
+.no-touch .cd-timeline-navigation a.inactive:hover {
+	border-color: #337AB7;
+}
+.cd-horizontal-timeline .events-content {
+	position: relative;
+	width: 100%;
+	margin: 10px 0;
+	overflow: hidden;
+	transition: height 0.4s;
+}
+.cd-horizontal-timeline .events-content li {
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+	left: 0;
+	top: 0;
+	transform: translateX(-100%);
+	padding: 0 5%;
+	opacity: 0;
+	-webkit-animation-duration: 0.4s;
+	        animation-duration: 0.4s;
+	-webkit-animation-timing-function: ease-in-out;
+	        animation-timing-function: ease-in-out;
+}
+.cd-horizontal-timeline .events-content li.selected {
+	position: relative;
+	z-index: 2;
+	opacity: 1;
+	transform: translateX(0);
+}
+.cd-horizontal-timeline .events-content li.enter-right, 
+.cd-horizontal-timeline .events-content li.leave-right {
+	-webkit-animation-name: cd-enter-right;
+	        animation-name: cd-enter-right;
+}
+.cd-horizontal-timeline .events-content li.enter-left, 
+.cd-horizontal-timeline .events-content li.leave-left {
+	-webkit-animation-name: cd-enter-left;
+	        animation-name: cd-enter-left;
+}
+.cd-horizontal-timeline .events-content li.leave-right, 
+.cd-horizontal-timeline .events-content li.leave-left {
+	animation-direction: reverse;
+}
+.cd-horizontal-timeline .events-content li > * {
+	max-width: 800px;
+	margin: 0 auto;
+}
+.cd-horizontal-timeline .events-content h2 {
+	font-size: 24px;
+	font-family: 'Roboto Condensed', sans-serif;
+	line-height: 1.2;
+	color: #337AB7;
+}
+.cd-horizontal-timeline .events-content em {
+	display: block;
+	font-style: italic;
+	margin: 10px auto;
+	font-size: 18px;
+}
+.cd-horizontal-timeline .events-content em::before {
+	content: '- ';
+}
+.cd-horizontal-timeline .events-content p {
+	font-size: 16px;
+	color: #474747;
+}
+.cd-horizontal-timeline .events-content em, 
+.cd-horizontal-timeline .events-content p {
+	line-height: 1.6;
+}
+@media only screen and (min-width: 768px) {
+	.cd-horizontal-timeline .events-content h2 {
+		font-size: 30px;
+	}
+	.cd-horizontal-timeline .events-content em {
+		font-size: 20px;
+	}
+	.cd-horizontal-timeline .events-content p {
+		font-size: 18px;
+	}
+}
+@-webkit-keyframes cd-enter-right {
+	0% {
+		opacity: 0;
+		transform: translateX(100%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0%);
+	}
+}
+@keyframes cd-enter-right {
+	0% {
+		opacity: 0;
+		transform: translateX(100%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0%);
+	}
+}
+@-webkit-keyframes cd-enter-left {
+	0% {
+		opacity: 0;
+		transform: translateX(-100%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0%);
+	}
+}
+@keyframes cd-enter-left {
+	0% {
+		opacity: 0;
+		transform: translateX(-100%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0%);
+	}
+}
+
+.cd-horizontal-timeline.loaded,
+.cd-horizontal-timeline .timeline {
+	margin: 0;
+	width: 100%;
+	max-width: unset;
+}
+
+.cd-horizontal-timeline .events-wrapper::before,
+.cd-horizontal-timeline .events-wrapper::after {
+	background-image: unset;
+}

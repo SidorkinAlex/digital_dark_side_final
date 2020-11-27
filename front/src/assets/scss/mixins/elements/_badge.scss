@@ -1,0 +1,40 @@
+@mixin badge-base {
+  border-radius: 0.25rem;
+  user-select  : none;
+  @content;
+}
+
+%badge-padding {
+  padding: 0.25em 0.4em;
+}
+
+%badge-base {
+  @include badge-base {
+    @extend %badge-padding;
+  }
+}
+
+@mixin badge-color($name, $color) {
+  .#{$name}-badge {
+    @extend %badge-base;
+    @extend .#{$name}-bg;
+
+    @if $name==alert {
+      @extend .dark-color;
+    }
+
+    @else if $name==white {
+      @extend .dark-color;
+    }
+
+    @else {
+      @extend .white-color;
+    }
+  }
+
+  .#{$name}-badge-empty {
+    @extend %badge-base;
+    @extend .#{$name}-border;
+    @extend .#{$name}-color;
+  }
+}

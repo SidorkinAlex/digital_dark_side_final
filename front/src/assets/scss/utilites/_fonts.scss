@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url('./../fonts/icomoon.eot?kbjdfh');
+  src: url('./../fonts/icomoon.eot?kbjdfh#iefix') format('embedded-opentype'),
+    url('./../fonts/icomoon.ttf?kbjdfh') format('truetype'),
+    url('./../fonts/icomoon.woff?kbjdfh') format('woff'),
+    url('./../fonts/icomoon.svg?kbjdfh#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^='icon-'],
+[class*=' icon-'] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-save:before {
+  content: '\e962';
+}
+
+.icon-remove:before {
+  content: '\e9ac';
+}
+
+.icon-checkbox-checked:before {
+  content: '\ea52';
+}
+
+.icon-vk:before {
+  content: '\e900';
+}
+
+.icon-telegram:before {
+  content: '\e901';
+}
+
+.icon-whatsapp:before {
+  content: '\e902';
+}
+
+.icon-facebook:before {
+  content: '\e903';
+}

@@ -1,0 +1,52 @@
+%button-padding {
+  padding: 0.625em;
+}
+
+%button-base {
+  @include badge-base {
+    @extend %button-padding;
+  }
+}
+
+@mixin button-color($name, $color) {
+  .#{$name}-button {
+    @extend %button-base;
+    @extend .#{$name}-bg;
+
+    @if $name==alert {
+      @extend .dark-color;
+    }
+
+    @else if $name==white {
+      @extend .dark-color;
+    }
+
+    @else {
+      @extend .white-color;
+    }
+
+    &:hover {
+      @extend .#{$name}-bg-hover;
+    }
+
+    &:active {
+      @extend .#{$name}-bg-active;
+    }
+  }
+
+  .#{$name}-button-empty {
+    @extend %button-base;
+    @extend .#{$name}-border;
+    @extend .#{$name}-color;
+
+    &:hover {
+      @extend .#{$name}-bg-hover;
+      @extend .white-color;
+    }
+
+    &:active {
+      @extend .#{$name}-bg-active;
+      @extend .white-color;
+    }
+  }
+}
