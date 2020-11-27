@@ -61,13 +61,13 @@ $layout_defs["DIGIT_TASK"]["subpanel_setup"]['digit_task'] = array(
     'order' => 90,
     'sort_order' => 'asc',
     'sort_by' => 'name',
-    'module' => 'Accounts',
+    'module' => 'DIGIT_TASK',
     'subpanel_name' => 'default',
     'get_subpanel_data' => 'members',
 //    'add_subpanel_data' => 'member_id',
     'title_key' => 'LBL_MEMBER_ORG_SUBPANEL_TITLE',
     'top_buttons' => array(
         array('widget_class' => 'SubPanelTopButtonQuickCreate'),
-        array('widget_class' => 'SubPanelTopSelectAccountButton', 'mode' => 'MultiSelect')
+        array('widget_class' => 'SubPanelTopSelectButton', 'mode' => 'MultiSelect')
     ),
 );
