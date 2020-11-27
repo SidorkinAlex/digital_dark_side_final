@@ -648,6 +648,28 @@ $dictionary['DIGIT_TASK'] = array(
             'vname' => 'LBL_MEMBERS',
         ),
 
+        //Реакция
+        'response' => array(
+            'required' => false,
+            'name' => 'response',
+            'vname' => 'LBL_RESPONSE',
+            'type' => 'varchar',
+            'massupdate' => 0,
+            'no_default' => false,
+            'comments' => '',
+            'help' => '',
+            'importable' => 'true',
+            'duplicate_merge' => 'disabled',
+            'duplicate_merge_dom_value' => '0',
+            'audited' => false,
+            'inline_edit' => true,
+            'reportable' => true,
+            'unified_search' => true,
+            'merge_filter' => 'disabled',
+            'query_type' => '',
+            'len' => '100',
+            'size' => '20',
+        ),
     ),
     'relationships' => array (
         'digit_task_users_spectator' =>

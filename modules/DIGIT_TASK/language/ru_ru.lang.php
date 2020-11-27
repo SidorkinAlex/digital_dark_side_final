@@ -107,4 +107,5 @@ $mod_strings = array (
   'LBL_PARENT_DIGITAL_TASK_ID' => 'Родительская задача (ID)',
   'LBL_PARENT_DIGITAL_TASK_NAME' => 'Родительская задача',
   'LBL_MEMBER_ORG_SUBPANEL_TITLE' => 'Дочерние задачи',
+    'LBL_RESPONSE' => 'Реакция',
 );
