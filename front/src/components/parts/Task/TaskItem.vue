@@ -23,9 +23,11 @@
             </el-tooltip>
           </div>
           <div class="task-item__status" v-if="task.status.value">
-            <el-tag :type="colorStatus()" :effect="effect()"
-              >{{ getValue('status', '') }}
-            </el-tag>
+            <el-tooltip content="Статус задачи" placement="top-start">
+              <el-tag :type="colorStatus()" :effect="effect()"
+                >{{ getValue('status', '') }}
+              </el-tag>
+            </el-tooltip>
           </div>
         </div>
         <div class="task-item__left-bottom">
@@ -37,20 +39,23 @@
         </div>
         <div class="task-item__bottom-item">{{ formatDate }}</div>
         <div class="task-item__bottom-item">
-          <el-tag
-            v-if="task.type.value"
-            :type="colorType"
-            :effect="effect()"
-            size="small"
-          >
-            {{ getValue('type', '') }}
-          </el-tag>
+          <el-tooltip content="Тип задачи" placement="top-start">
+            <el-tag
+              v-if="task.type.value"
+              :type="colorType"
+              :effect="effect()"
+              size="small"
+            >
+              {{ getValue('type', '') }}
+            </el-tag>
+          </el-tooltip>
           <span class="task-item__control">
             <label class="el-form-item__label">Контроль</label>
             <span :class="checkboxClasses('control')">
               <span class="el-checkbox__inner"></span>
               <input
                 type="checkbox"
+                readonly
                 aria-hidden="false"
                 true-value="1"
                 false-value="0"
@@ -162,8 +167,8 @@ export default {
       return types_colors[type] || '';
     },
     formatDate() {
-      return `${this.task.date_start.value.split(' ')[0]} - ${
-        this.task.date_stop.value.split(' ')[0]
+      return `${this.task.date_plan.value.split(' ')[0]} - ${
+        this.task.date_fact.value.split(' ')[0]
       }`;
     },
     mainInfo() {
