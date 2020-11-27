@@ -141,12 +141,13 @@ export const editView = {
       this.$set(this.form, name, val);
       this.$refs.form.validateField(name);
     },
-    changeOption(name) {
+    changeOption(name, id_name) {
+      // set id_name field
       if (name) {
         const selectedOpt = this.options[name].filter(
           opt => opt.name === this.form[name]
         );
-        this.$set(this.form, FIELD.PARAM.ID, selectedOpt[0].id);
+        this.$set(this.form, id_name, selectedOpt[0].id);
       }
     },
     saveForm() {
@@ -161,6 +162,7 @@ export const editView = {
             );
             const formData = new FormData();
             const form = { ...defaultParams, ...this.form };
+            console.log(this.form);
             const params = {};
 
             for (let key in form) {

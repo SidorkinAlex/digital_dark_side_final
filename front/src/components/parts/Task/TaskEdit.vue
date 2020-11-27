@@ -44,7 +44,7 @@
                   :model="form.source"
                   :field="fields.source"
                   :options="options.source"
-                  @change-option="handleChange"
+                  @change-option="changeOption"
                   @set-value="setValue"
                 >
                 </SelectEl>
@@ -58,7 +58,21 @@
                   :model="form.digit_project_name"
                   :field="fields.digit_project_name"
                   :options="options.digit_project_name"
-                  @change-option="handleChange"
+                  @change-option="changeOption"
+                  @set-value="setValue"
+                >
+                </SelectEl>
+              </el-form-item>
+              <el-form-item
+                class="row"
+                prop="parent_name"
+                :label="mod[fields.parent_name.vname]"
+              >
+                <SelectEl
+                  :model="form.parent_name"
+                  :field="fields.parent_name"
+                  :options="options.parent_name"
+                  @change-option="changeOption"
                   @set-value="setValue"
                 >
                 </SelectEl>
@@ -77,7 +91,7 @@
                   :model="form.assigned_user_name"
                   :field="fields.assigned_user_name"
                   :options="options.assigned_user_name"
-                  @change-option="handleChange"
+                  @change-option="changeOption"
                   @set-value="setValue"
                 >
                 </SelectEl>
@@ -91,7 +105,7 @@
                   :model="form.task_manager_name"
                   :field="fields.task_manager_name"
                   :options="options.task_manager_name"
-                  @change-option="handleChange"
+                  @change-option="changeOption"
                   @set-value="setValue"
                 >
                 </SelectEl>
@@ -110,7 +124,7 @@
                   :model="form.digit_block_name"
                   :field="fields.digit_block_name"
                   :options="options.digit_block_name"
-                  @change-option="handleChange"
+                  @change-option="changeOption"
                   @set-value="setValue"
                 >
                 </SelectEl>
@@ -124,7 +138,7 @@
                   :model="form.digit_section_name"
                   :field="fields.digit_section_name"
                   :options="options.digit_section_name"
-                  @change-option="handleChange"
+                  @change-option="changeOption"
                   @set-value="setValue"
                 >
                 </SelectEl>
@@ -138,7 +152,7 @@
                   :model="form.digit_workshop_name"
                   :field="fields.digit_workshop_name"
                   :options="options.digit_workshop_name"
-                  @change-option="handleChange"
+                  @change-option="changeOption"
                   @set-value="setValue"
                 >
                 </SelectEl>
@@ -153,7 +167,7 @@
                     :model="form.priority"
                     :field="fields.priority"
                     :options="options.priority"
-                    @change-option="handleChange"
+                    @change-option="changeOption"
                     @set-value="setValue"
                   >
                   </SelectEl>
@@ -167,7 +181,7 @@
                     :model="form.complexity"
                     :field="fields.complexity"
                     :options="options.complexity"
-                    @change-option="handleChange"
+                    @change-option="changeOption"
                     @set-value="setValue"
                   >
                   </SelectEl>
@@ -183,7 +197,7 @@
                     :model="form.status"
                     :field="fields.status"
                     :options="options.status"
-                    @change-option="handleChange"
+                    @change-option="changeOption"
                     @set-value="setValue"
                   >
                   </SelectEl>
@@ -197,7 +211,7 @@
                     :model="form.type"
                     :field="fields.type"
                     :options="options.type"
-                    @change-option="handleChange"
+                    @change-option="changeOption"
                     @set-value="setValue"
                   >
                   </SelectEl>
@@ -276,6 +290,7 @@ export default {
         'name',
         'source',
         'digit_project_name',
+        'parent_name',
         'assigned_user_name',
         'task_manager_name',
         'digit_block_name',

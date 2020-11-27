@@ -30,40 +30,45 @@
             </el-tooltip>
           </div>
         </div>
-        <div class="task-item__left-bottom">
+        <!-- <div class="task-item__left-bottom">
           <div class="vacancy-table-item__project">
             <component :is="'s-text'" :underline="false">
               {{ getValue('digit_project_name', '') }}</component
             >
           </div>
-        </div>
-        <div class="task-item__bottom-item">{{ formatDate }}</div>
-        <div class="task-item__bottom-item">
-          <el-tooltip content="Тип задачи" placement="top-start">
-            <el-tag
-              v-if="task.type.value"
-              :type="colorType"
-              :effect="effect()"
-              size="small"
-            >
-              {{ getValue('type', '') }}
-            </el-tag>
-          </el-tooltip>
-          <span class="task-item__control">
-            <label class="el-form-item__label">Контроль</label>
-            <span :class="checkboxClasses('control')">
-              <span class="el-checkbox__inner"></span>
-              <input
-                type="checkbox"
-                readonly
-                aria-hidden="false"
-                true-value="1"
-                false-value="0"
-                :value="task.control.value"
-                class="el-checkbox__original"
-              />
+        </div> -->
+        <div class="task-item__left-bottom">
+          <div class="task-item__bottom-item">
+            <el-tooltip content="Тип задачи" placement="top-start">
+              <el-tag
+                v-if="task.type.value"
+                :type="colorType"
+                :effect="effect()"
+                size="small"
+              >
+                {{ getValue('type', '') }}
+              </el-tag>
+            </el-tooltip>
+            <span class="task-item__control">
+              <label class="el-form-item__label">Контроль</label>
+              <span :class="checkboxClasses('control')">
+                <span class="el-checkbox__inner"></span>
+                <input
+                  type="checkbox"
+                  readonly
+                  aria-hidden="false"
+                  true-value="1"
+                  false-value="0"
+                  :value="task.control.value"
+                  class="el-checkbox__original"
+                />
+              </span>
             </span>
-          </span>
+          </div>
+        </div>
+        <div class="task-item__bottom-item task-item__dates">
+          <span>По плану до: {{ formatDate('date_plan') }}</span>
+          <span>По факту до: {{ formatDate('date_fact') }}</span>
         </div>
       </div>
       <div class="task-item__medium">
@@ -166,11 +171,6 @@ export default {
       const type = this.getValue('type', '');
       return types_colors[type] || '';
     },
-    formatDate() {
-      return `${this.task.date_plan.value.split(' ')[0]} - ${
-        this.task.date_fact.value.split(' ')[0]
-      }`;
-    },
     mainInfo() {
       let body = [];
       let bodyKeys = this.bodyKeys;
@@ -188,6 +188,9 @@ export default {
     }
   },
   methods: {
+    formatDate(name) {
+      return this.task[name].value.split(' ')[0];
+    },
     colorStatus(name) {
       let status = name || this.task.status.value;
       status = Object.keys(statuses).find(i => i === status);

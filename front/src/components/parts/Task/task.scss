@@ -185,6 +185,15 @@
     color: #606266;
   }
 
+  &__dates {
+    display: flex;
+    font-size: 12px;
+
+    span {
+      width: 50%;
+    }
+  }
+
   &__grade {
     flex: 1;
     margin-right: 1em;
@@ -292,8 +301,9 @@
 
   &__bottom-item {
     @extend %flex-center;
-    justify-content: flex-end;
-    width: 50%;
+    // justify-content: flex-end;
+    // width: 50%;
+    width: 100%;
 
     .el-tag {
       margin-right: 12px;

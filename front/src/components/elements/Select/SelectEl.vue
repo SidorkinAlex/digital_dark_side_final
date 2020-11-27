@@ -66,7 +66,7 @@ export default {
         type !== FIELD.TYPE.CURRENCY_ID &&
         type !== FIELD.TYPE.ENUM
       ) {
-        this.$emit('change-option', name, id_name.name);
+        this.$emit('change-option', name, id_name);
       } else {
         // this.callback.field.change(this.field, this.localModel);
       }
