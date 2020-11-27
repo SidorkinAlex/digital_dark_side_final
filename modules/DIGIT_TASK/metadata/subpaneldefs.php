@@ -54,6 +54,8 @@ $layout_defs["DIGIT_TASK"]["subpanel_setup"]['assigned_task_free_form'] = array(
     'top_buttons' => array(
         0 => array('widget_class' => 'SubPanelTopButtonQuickCreate',),
         1 => array('widget_class' => 'SubPanelTopSelectButton', 'mode' => 'MultiSelect',),
+    ),
+);
 
 $layout_defs["DIGIT_TASK"]["subpanel_setup"]['digit_task'] = array(
     'order' => 90,
