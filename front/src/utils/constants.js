@@ -6,7 +6,21 @@ export const MODULE = {
 // field params, types, ids
 export const FIELD = {
   ID: {
-    DESCRIPTION: 'description'
+    DESCRIPTION: 'description',
+    NAME: 'name',
+    SOURCE: 'source',
+    DIGIT_PROJECT_NAME: 'digit_project_name',
+    ASSIGNED_USER_NAME: 'assigned_user_name',
+    TASK_MANAGER_NAME: 'task_manager_name',
+    DIGIT_BLOCK_NAME: 'digit_block_name',
+    DIGIT_SECTION_NAME: 'digit_section_name',
+    DIGIT_WORKSHOP_NAME: 'digit_workshop_name',
+    PRIORITY: 'priority',
+    COMPLEXITY: 'complexity',
+    STATUS: 'status',
+    TYPE: 'type',
+    DATE_PLAN: 'date_plan',
+    DATE_FACT: 'date_fact'
   },
   TYPE: {
     ID: 'id',

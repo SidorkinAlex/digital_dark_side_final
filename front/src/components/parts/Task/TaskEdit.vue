@@ -47,15 +47,6 @@
                   @change-option="handleChange"
                   @set-value="setValue"
                 >
-                  <!-- <el-option
-                    v-for="opt in options.source"
-                    :key="opt.id"
-                    :label="opt.name"
-                    :value="opt.name"
-                    :disabled="opt.disabled"
-                  >
-                    {{ opt.name }}
-                  </el-option> -->
                 </SelectEl>
               </el-form-item>
               <el-form-item
@@ -70,15 +61,6 @@
                   @change-option="handleChange"
                   @set-value="setValue"
                 >
-                  <!-- <el-option
-                    v-for="opt in options.digit_project_name"
-                    :key="opt.id"
-                    :label="opt.name"
-                    :value="specialField ? opt.id : opt.name"
-                    :disabled="opt.disabled"
-                  >
-                    {{ opt.name }}
-                  </el-option> -->
                 </SelectEl>
               </el-form-item>
             </el-card>
@@ -98,72 +80,8 @@
                   @change-option="handleChange"
                   @set-value="setValue"
                 >
-                  <!-- <el-option
-                    v-for="opt in options.assigned_user_name"
-                    :key="opt.id"
-                    :label="opt.name"
-                    :value="specialField ? opt.id : opt.name"
-                    :disabled="opt.disabled"
-                  >
-                    {{ opt.name }}
-                  </el-option> -->
                 </SelectEl>
               </el-form-item>
-              <!-- <el-form-item
-                class="row"
-                prop="spectators_ids"
-                :label="mod[fields.spectators_ids.vname]"
-              >
-                <SelectEl
-                  :model="form.spectators_ids"
-                  :field="fields.spectators_ids"
-                  :placeholder="fields.spectators_ids.placeholder || ''"
-                  :filterable="fields.spectators_ids.type === FIELD.TYPE.RELATE"
-                  :required="fields.spectators_ids.required"
-                  no-match-text="Нет результатов поиска"
-                  @change-option="handleChange"
-                >
-                  <el-option
-                    v-for="opt in options.spectators_ids"
-                    :key="opt.id"
-                    :label="opt.name"
-                    :value="specialField ? opt.id : opt.name"
-                    :disabled="opt.disabled"
-                  >
-                    {{ opt.name }}
-                  </el-option>
-                </SelectEl>
-              </el-form-item> -->
-              <!-- <el-form-item
-                class="row"
-                prop="digit_task_users_spectator"
-                :label="mod[fields.digit_task_users_spectator.vname]"
-              >
-                <SelectEl
-                  :model="form.digit_task_users_spectator"
-                  :field="fields.digit_task_users_spectator"
-                  :placeholder="
-                    fields.digit_task_users_spectator.placeholder || ''
-                  "
-                  :filterable="
-                    fields.digit_task_users_spectator.type === FIELD.TYPE.RELATE
-                  "
-                  :required="fields.digit_task_users_spectator.required"
-                  no-match-text="Нет результатов поиска"
-                  @change-option="handleChange"
-                >
-                  <el-option
-                    v-for="opt in options.digit_task_users_spectator ||
-                      []"
-                    :key="opt.id"
-                    :label="opt.name"
-                    :value="specialField ? opt.id : opt.name"
-                    :disabled="opt.disabled"
-                  >
-                    {{ opt.name }}
-                  </el-option>
-                </SelectEl>
-              </el-form-item> -->
               <el-form-item
                 class="row"
                 prop="task_manager_name"
@@ -176,15 +94,6 @@
                   @change-option="handleChange"
                   @set-value="setValue"
                 >
-                  <!-- <el-option
-                    v-for="opt in options.task_manager_name"
-                    :key="opt.id"
-                    :label="opt.name"
-                    :value="specialField ? opt.id : opt.name"
-                    :disabled="opt.disabled"
-                  >
-                    {{ opt.name }}
-                  </el-option> -->
                 </SelectEl>
               </el-form-item>
             </div>
@@ -204,15 +113,6 @@
                   @change-option="handleChange"
                   @set-value="setValue"
                 >
-                  <!-- <el-option
-                    v-for="opt in options.digit_block_name"
-                    :key="opt.id"
-                    :label="opt.name"
-                    :value="specialField ? opt.id : opt.name"
-                    :disabled="opt.disabled"
-                  >
-                    {{ opt.name }}
-                  </el-option> -->
                 </SelectEl>
               </el-form-item>
               <el-form-item
@@ -227,15 +127,6 @@
                   @change-option="handleChange"
                   @set-value="setValue"
                 >
-                  <!-- <el-option
-                    v-for="opt in options.digit_section_name"
-                    :key="opt.id"
-                    :label="opt.name"
-                    :value="specialField ? opt.id : opt.name"
-                    :disabled="opt.disabled"
-                  >
-                    {{ opt.name }}
-                  </el-option> -->
                 </SelectEl>
               </el-form-item>
               <el-form-item
@@ -250,15 +141,6 @@
                   @change-option="handleChange"
                   @set-value="setValue"
                 >
-                  <!-- <el-option
-                    v-for="opt in options.digit_workshop_name"
-                    :key="opt.id"
-                    :label="opt.name"
-                    :value="specialField ? opt.id : opt.name"
-                    :disabled="opt.disabled"
-                  >
-                    {{ opt.name }}
-                  </el-option> -->
                 </SelectEl>
               </el-form-item>
               <div class="el-form-item sub-field">
@@ -274,15 +156,6 @@
                     @change-option="handleChange"
                     @set-value="setValue"
                   >
-                    <!-- <el-option
-                      v-for="opt in options.priority"
-                      :key="opt.id"
-                      :label="opt.name"
-                      :value="specialField ? opt.id : opt.name"
-                      :disabled="opt.disabled"
-                    >
-                      {{ opt.name }}
-                    </el-option> -->
                   </SelectEl>
                 </el-form-item>
                 <el-form-item
@@ -297,17 +170,10 @@
                     @change-option="handleChange"
                     @set-value="setValue"
                   >
-                    <!-- <el-option
-                      v-for="opt in options.complexity"
-                      :key="opt.id"
-                      :label="opt.name"
-                      :value="specialField ? opt.id : opt.name"
-                      :disabled="opt.disabled"
-                    >
-                      {{ opt.name }}
-                    </el-option> -->
                   </SelectEl>
                 </el-form-item>
+              </div>
+              <div class="el-form-item sub-field">
                 <el-form-item
                   class="row"
                   prop="status"
@@ -320,37 +186,42 @@
                     @change-option="handleChange"
                     @set-value="setValue"
                   >
-                    <!-- <el-option
-                      v-for="opt in options.status"
-                      :key="opt.id"
-                      :label="opt.name"
-                      :value="specialField ? opt.id : opt.name"
-                      :disabled="opt.disabled"
-                    >
-                      {{ opt.name }}
-                    </el-option> -->
+                  </SelectEl>
+                </el-form-item>
+                <el-form-item
+                  class="row"
+                  prop="type"
+                  :label="mod[fields.type.vname]"
+                >
+                  <SelectEl
+                    :model="form.type"
+                    :field="fields.type"
+                    :options="options.type"
+                    @change-option="handleChange"
+                    @set-value="setValue"
+                  >
                   </SelectEl>
                 </el-form-item>
               </div>
               <div class="el-form-item sub-field">
                 <el-form-item
                   class="row"
-                  prop="date_start"
-                  :label="mod[fields.date_start.vname]"
+                  prop="date_plan"
+                  :label="mod[fields.date_plan.vname]"
                   ><DatepickerEl
-                    :field="fields.date_start"
-                    :model="form.date_start"
+                    :field="fields.date_plan"
+                    :model="form.date_plan"
                     :datepicker="datepicker"
                     @set-value="setValue"
                   ></DatepickerEl
                 ></el-form-item>
                 <el-form-item
                   class="row"
-                  prop="date_stop"
-                  :label="mod[fields.date_stop.vname]"
+                  prop="date_fact"
+                  :label="mod[fields.date_fact.vname]"
                   ><DatepickerEl
-                    :field="fields.date_stop"
-                    :model="form.date_stop"
+                    :field="fields.date_fact"
+                    :model="form.date_fact"
                     :datepicker="datepicker"
                     @set-value="setValue"
                   ></DatepickerEl
@@ -413,8 +284,9 @@ export default {
         'priority',
         'complexity',
         'status',
-        'date_start',
-        'date_stop',
+        'type',
+        'date_plan',
+        'date_fact',
         'description'
       ]
     };
