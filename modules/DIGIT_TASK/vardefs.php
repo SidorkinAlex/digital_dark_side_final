@@ -628,7 +628,7 @@ $dictionary['DIGIT_TASK'] = array(
             'massupdate' => false,
             'source' => 'non-db',
             'len' => 36,
-            'link' => 'members',
+            'link' => 'member_of',
             'unified_search' => true,
             'importable' => 'true', 
             'table' => 'digit_task',
@@ -636,6 +636,18 @@ $dictionary['DIGIT_TASK'] = array(
                 'id',
                 'name',
             ),
+        ),
+
+        'member_of' => array(
+            'name' => 'member_of',
+            'type' => 'link',
+            'relationship' => 'member_digit_task',
+            'module' => 'DIGIT_TASK',
+            'bean_name' => 'DIGIT_TASK',
+            'link_type' => 'one',
+            'source' => 'non-db',
+            'vname' => 'LBL_MEMBER_OF',
+            'side' => 'right',
         ),
 
         'members' => array(
