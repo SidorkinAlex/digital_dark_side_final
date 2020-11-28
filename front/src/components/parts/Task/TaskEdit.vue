@@ -32,7 +32,7 @@
                 <InputEl
                   :field="fields.name"
                   :model="form.name"
-                  :record-btn-class="recordBtnClass"
+                  :record-btn-class="recordingClass['name']"
                   @set-value="setValue"
                   @recognize="recognizeVoice"
                 >
@@ -308,13 +308,14 @@
                 <InputEl
                   :field="fields.description"
                   :model="form.description"
+                  :recording="recording.description"
                   @set-value="setValue"
                   class="el-input--suffix"
                 >
                 </InputEl>
                 <span
                   @click="recognizeVoice('description')"
-                  :class="['el-input__icon', recordBtnClass]"
+                  :class="['el-input__icon', recordingClass['description']]"
                 ></span>
               </el-form-item>
             </el-card>
@@ -346,7 +347,7 @@ export default {
       module: MODULE.DIGIT_TASK,
       FIELD,
       dictateService: null,
-      recordBtnClass: 'el-icon-microphone',
+      recordingClass: {},
       textDataBase: '',
       textData: '',
       form: {},
@@ -430,16 +431,13 @@ export default {
           server: this.server,
           onResults: hyp => {
             console.log('result');
-
-            this.textDataBase = this.textDataBase + hyp + '\n';
+            this.textDataBase = this.textDataBase + ' ' + hyp + '\n';
             this.textData = this.textDataBase;
-            this.setValue(name, this.textData);
+            this.$set(this.form, name, this.textDataBase);
           },
           onPartialResults: hyp => {
             console.log('partial');
-
             this.textData = this.textDataBase + hyp;
-            this.setValue(name, this.textData);
           },
           onError: (/*code, data*/) => {
             // console.log(code, data);
@@ -448,13 +446,16 @@ export default {
             // console.log(code, data);
           }
         });
-        this.recordBtnClass = 'el-icon-turn-off-microphone';
+        this.$set(this.recordingClass, name, 'el-icon-turn-off-microphone');
       } else if (this.dictateService.isRunning()) {
         this.dictateService.resume();
-        this.recordBtnClass = 'el-icon-turn-off-microphone';
+        this.$set(this.recordingClass, name, 'el-icon-turn-off-microphone');
       } else {
         this.dictateService.pause();
-        this.recordBtnClass = 'el-icon-microphone';
+        this.dictateService = new DictateService();
+        this.textDataBase = '';
+        this.textData = '';
+        this.$set(this.recordingClass, name, 'el-icon-microphone');
       }
     },
     assignedLabel(name) {
