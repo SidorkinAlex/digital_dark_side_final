@@ -22,13 +22,13 @@
               </component>
             </el-tooltip>
           </div>
-          <div class="task-item__status" v-if="task.status.value">
+          <!-- <div class="task-item__status" v-if="task.status.value">
             <el-tooltip content="Статус задачи" placement="top-start">
               <el-tag :type="colorStatus()" :effect="effect()"
                 >{{ getValue('status', '') }}
               </el-tag>
             </el-tooltip>
-          </div>
+          </div> -->
         </div>
         <!-- <div class="task-item__left-bottom">
           <div class="vacancy-table-item__project">
@@ -39,6 +39,14 @@
         </div> -->
         <div class="task-item__left-bottom">
           <div class="task-item__bottom-item">
+            <el-tooltip :content="`Приоритет: ${getValue('priority', '')}`" placement="top-start">
+              <span :class="priorities[task.priority.value]"></span>
+            </el-tooltip>
+            <el-tooltip content="Статус задачи" placement="top-start">
+              <el-tag :type="colorStatus()" :effect="effect()" size="small"
+                >{{ getValue('status', '') }}
+              </el-tag>
+            </el-tooltip>
             <el-tooltip content="Тип задачи" placement="top-start">
               <el-tag
                 v-if="task.type.value"
@@ -154,11 +162,17 @@ export default {
         middle: '2',
         high: '3'
       },
+      priorities: {
+        'low' : 'el-icon-bottom',
+        'middle': 'el-icon-d-arrow-left top',
+        'high': 'el-icon-warning'
+      },
       bodyKeys: [
         'capacity',
-        'complexity',
+        'digit_project_name',
         'source',
-        'spectators_ids',
+        'parent_name',
+        // 'spectators_ids',
         'task_manager_name',
         'assigned_user_name'
       ],

@@ -157,6 +157,11 @@ $dictionary['DIGIT_TASK'] = array(
             'rname' => 'name',
             'quicksearch' => 'enabled',
             'studio' => 'visible',
+            'table' => 'digit_project',
+            'fields_in_table' => array(
+                'id',
+                'name',
+            ),
         ),
         'complexity' =>
             array (

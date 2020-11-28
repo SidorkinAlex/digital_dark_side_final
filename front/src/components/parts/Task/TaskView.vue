@@ -151,11 +151,32 @@
       <div class="task-view__main candidate-form">
         <div class="task-view__info">
           <el-tabs v-model="activeInfo">
-            <el-tab-pane
-              label="Описание"
-              name="description"
-              v-html="formatHtml(data.description.value)"
-            >
+            <el-tab-pane label="Описание" name="description">
+              <div class="label-value">
+                <span class="label-value__label">Цех</span>
+                <span class="label-value__value">
+                  {{ data.digit_workshop_name.value }}
+                </span>
+              </div>
+              <div class="label-value">
+                <span class="label-value__label">Участок</span>
+                <span class="label-value__value">
+                  {{ data.digit_section_name.value }}
+                </span>
+              </div>
+              <div class="label-value">
+                <span class="label-value__label">Корпус</span>
+                <span class="label-value__value">
+                  {{ data.digit_block_name.value }}
+                </span>
+              </div>
+              <div class="label-value">
+                <span class="label-value__label">Описание</span>
+                <span
+                  class="label-value__value"
+                  v-html="formatHtml(data.description.value)"
+                ></span>
+              </div>
             </el-tab-pane>
             <el-tab-pane label="Документы" name="documents">
               <form
@@ -290,7 +311,7 @@ export default {
   data() {
     return {
       module: MODULE.DIGIT_TASK,
-      tasks: [],//tasksData,
+      tasks: [], //tasksData,
       FIELD,
       loading: false,
       activeInfo: 'description',

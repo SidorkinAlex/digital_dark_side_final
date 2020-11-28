@@ -7,6 +7,7 @@
   .el-form-item.sub-field {
     display: grid;
     grid-auto-flow: column;
+    grid-auto-columns: 1fr;
     /* grid-template-columns: 1fr 1fr; */
 
     &:before,
@@ -15,7 +16,8 @@
     }
   }
 
-  input[type='text'] {
+  input[type='text'],
+  input[type='number'] {
     background: #f0faf8;
   }
 
@@ -313,6 +315,10 @@
   &__control {
     @extend %flex-center;
 
+    .el-checkbox__input {
+      cursor: default;
+    }
+
     label {
       padding-right: 5px;
     }
@@ -373,6 +379,28 @@
 
     path.fa-secondary {
       color: #ddeeff;
+    }
+  }
+
+  .el-icon-warning {
+    color: #ff5d5d;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  .el-icon-bottom {
+    color: #12de3e;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  .el-icon-d-arrow-left {
+    color: #ffa344;
+    font-weight: bold;
+    margin-right: 10px;
+
+    &.top {
+      transform: rotate(90deg);
     }
   }
 }
@@ -551,5 +579,30 @@
 
   .el-select__input {
     background-color: transparent !important;
+  }
+}
+
+.label-value {
+  @extend %flex;
+  word-break: break-word;
+
+  &__label {
+    color: $--color-text-placeholder;
+    font-size: 0.875em;
+    margin-right: 0.5em;
+    white-space: nowrap;
+
+    &::after {
+      content: ':';
+    }
+  }
+
+  &__value {
+    font-size: 0.875em;
+    color: #606266;
+
+    &_wrap_normal {
+      white-space: normal;
+    }
   }
 }

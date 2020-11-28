@@ -117,13 +117,13 @@
             <el-card class="el-form-item sub-field">
               <el-form-item
                 class="row"
-                prop="digit_block_name"
-                :label="mod[fields.digit_block_name.vname]"
+                prop="digit_workshop_name"
+                :label="mod[fields.digit_workshop_name.vname]"
               >
                 <SelectEl
-                  :model="form.digit_block_name"
-                  :field="fields.digit_block_name"
-                  :options="options.digit_block_name"
+                  :model="form.digit_workshop_name"
+                  :field="fields.digit_workshop_name"
+                  :options="options.digit_workshop_name"
                   @change-option="changeOption"
                   @set-value="setValue"
                 >
@@ -145,13 +145,13 @@
               </el-form-item>
               <el-form-item
                 class="row"
-                prop="digit_workshop_name"
-                :label="mod[fields.digit_workshop_name.vname]"
+                prop="digit_block_name"
+                :label="mod[fields.digit_block_name.vname]"
               >
                 <SelectEl
-                  :model="form.digit_workshop_name"
-                  :field="fields.digit_workshop_name"
-                  :options="options.digit_workshop_name"
+                  :model="form.digit_block_name"
+                  :field="fields.digit_block_name"
+                  :options="options.digit_block_name"
                   @change-option="changeOption"
                   @set-value="setValue"
                 >
@@ -217,6 +217,34 @@
                   </SelectEl>
                 </el-form-item>
               </div>
+
+              <div class="el-form-item sub-field">
+                <el-form-item
+                  class="row"
+                  prop="capacity"
+                  :label="mod[fields.capacity.vname]"
+                >
+                  <InputEl
+                    :model="form.capacity"
+                    :field="fields.capacity"
+                    @set-value="setValue"
+                  >
+                  </InputEl>
+                </el-form-item>
+                <el-form-item
+                  class="row"
+                  prop="control"
+                  :label="mod[fields.control.vname]"
+                >
+                  <CheckboxEl
+                    :model="form.control"
+                    :field="fields.control"
+                    @change-option="changeOption"
+                    @set-value="setValue"
+                  >
+                  </CheckboxEl>
+                </el-form-item>
+              </div>
               <div class="el-form-item sub-field">
                 <el-form-item
                   class="row"
@@ -263,6 +291,7 @@ import { mixin, editView } from '@/utils/mixins';
 import { MODULE, FIELD /*, BUTTON,*/ } from '@/utils/constants';
 import SelectEl from 'Elements/Select/SelectEl.vue';
 import InputEl from 'Elements/Input/Input.vue';
+import CheckboxEl from 'Elements/Checkbox/Checkbox.vue';
 import DatepickerEl from 'Elements/Datepicker/Datepicker.vue';
 export default {
   mixins: [mixin, editView],
@@ -346,7 +375,8 @@ export default {
   components: {
     InputEl,
     SelectEl,
-    DatepickerEl
+    DatepickerEl,
+    CheckboxEl
   }
 };
 </script>
