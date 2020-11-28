@@ -5,9 +5,11 @@
         <el-button type="primary" @click="saveForm">
           <span>Сохранить</span>
         </el-button>
-        <el-button type="button" @click="resetForm">
-          <span>Закрыть</span>
-        </el-button>
+        <el-link :href="resetForm()">
+          <el-button type="button" @click="resetForm">
+            <span>Закрыть</span>
+          </el-button>
+        </el-link>
       </div>
       <el-form
         v-if="fields"
@@ -38,34 +40,6 @@
                   @recognize="recognizeVoice"
                 >
                 </InputEl>
-              </el-form-item>
-              <el-form-item
-                class="row"
-                prop="source"
-                :label="mod[fields.source.vname]"
-              >
-                <SelectEl
-                  :model="form.source"
-                  :field="fields.source"
-                  :options="options.source"
-                  @change-option="changeOption"
-                  @set-value="setValue"
-                >
-                </SelectEl>
-              </el-form-item>
-              <el-form-item
-                class="row"
-                prop="digit_project_name"
-                :label="mod[fields.digit_project_name.vname]"
-              >
-                <SelectEl
-                  :model="form.digit_project_name"
-                  :field="fields.digit_project_name"
-                  :options="options.digit_project_name"
-                  @change-option="changeOption"
-                  @set-value="setValue"
-                >
-                </SelectEl>
               </el-form-item>
               <el-form-item
                 class="row"
@@ -148,48 +122,6 @@
           <div class="task-form__section">
             <h3>Детали задачи</h3>
             <el-card class="el-form-item sub-field">
-              <el-form-item
-                class="row"
-                prop="digit_workshop_name"
-                :label="mod[fields.digit_workshop_name.vname]"
-              >
-                <SelectEl
-                  :model="form.digit_workshop_name"
-                  :field="fields.digit_workshop_name"
-                  :options="options.digit_workshop_name"
-                  @change-option="changeOption"
-                  @set-value="setValue"
-                >
-                </SelectEl>
-              </el-form-item>
-              <el-form-item
-                class="row"
-                prop="digit_section_name"
-                :label="mod[fields.digit_section_name.vname]"
-              >
-                <SelectEl
-                  :model="form.digit_section_name"
-                  :field="fields.digit_section_name"
-                  :options="options.digit_section_name"
-                  @change-option="changeOption"
-                  @set-value="setValue"
-                >
-                </SelectEl>
-              </el-form-item>
-              <el-form-item
-                class="row"
-                prop="digit_block_name"
-                :label="mod[fields.digit_block_name.vname]"
-              >
-                <SelectEl
-                  :model="form.digit_block_name"
-                  :field="fields.digit_block_name"
-                  :options="options.digit_block_name"
-                  @change-option="changeOption"
-                  @set-value="setValue"
-                >
-                </SelectEl>
-              </el-form-item>
               <div class="el-form-item sub-field">
                 <el-form-item
                   class="row"
@@ -250,34 +182,6 @@
                   </SelectEl>
                 </el-form-item>
               </div>
-
-              <div class="el-form-item sub-field">
-                <el-form-item
-                  class="row"
-                  prop="capacity"
-                  :label="mod[fields.capacity.vname]"
-                >
-                  <InputEl
-                    :model="form.capacity"
-                    :field="fields.capacity"
-                    @set-value="setValue"
-                  >
-                  </InputEl>
-                </el-form-item>
-                <el-form-item
-                  class="row"
-                  prop="control"
-                  :label="mod[fields.control.vname]"
-                >
-                  <CheckboxEl
-                    :model="form.control"
-                    :field="fields.control"
-                    @change-option="changeOption"
-                    @set-value="setValue"
-                  >
-                  </CheckboxEl>
-                </el-form-item>
-              </div>
               <div class="el-form-item sub-field">
                 <el-form-item
                   class="row"
@@ -332,7 +236,6 @@ import { mixin, editView } from '@/utils/mixins';
 import { MODULE, FIELD } from '@/utils/constants';
 import SelectEl from 'Elements/Select/SelectEl.vue';
 import InputEl from 'Elements/Input/Input.vue';
-import CheckboxEl from 'Elements/Checkbox/Checkbox.vue';
 import DatepickerEl from 'Elements/Datepicker/Datepicker.vue';
 export default {
   mixins: [mixin, editView],
@@ -367,8 +270,6 @@ export default {
       },
       fieldsConfig: [
         'name',
-        'source',
-        'digit_project_name',
         'parent_name',
         'digit_tasks_class',
         'assigned_users_assigned_ids',
@@ -376,9 +277,6 @@ export default {
         'assigned_users_info_ids',
         'assigned_user_name',
         'task_manager_name',
-        'digit_block_name',
-        'digit_section_name',
-        'digit_workshop_name',
         'priority',
         'complexity',
         'status',
@@ -437,7 +335,7 @@ export default {
           onResults: hyp => {
             this.textDataBase = this.textDataBase + ' ' + hyp + '\n';
             this.textData = this.textDataBase;
-            this.form = {...this.form, [name]: this.textDataBase}
+            this.form = { ...this.form, [name]: this.textDataBase };
             this.updateRecorded++;
 
             console.log('result', this.form[name]);
@@ -446,7 +344,7 @@ export default {
             this.textData = this.textDataBase + hyp;
             this.$set(this.form, name, this.textData);
             this.updateRecorded++;
-          },
+          }
           // onError: (/*code, data*/) => {
           //   // console.log(code, data);
           // },
@@ -479,8 +377,7 @@ export default {
   components: {
     InputEl,
     SelectEl,
-    DatepickerEl,
-    CheckboxEl
+    DatepickerEl
   }
 };
 </script>

@@ -2,9 +2,11 @@
   <div class="task-view">
     <div class="control-panel">
       <div class="inline-buttons">
-        <el-button type="primary" @click="editRoute">
-          <span>Править</span>
-        </el-button>
+        <el-link :href="editRoute">
+          <el-button type="primary">
+            <span>Править</span>
+          </el-button>
+        </el-link>
       </div>
       <!-- <stage-panel :module="module" :stages="tasks"></stage-panel> -->
       <form id="task-view" ref="form" enctype="multipart/form-data">
@@ -118,10 +120,12 @@ export default {
       ]
     };
   },
-  methods: {
+  computed: {
     editRoute() {
-      location.href = this.editViewLink(this.module, this.data.id.value);
+      return this.editViewLink(this.module, this.data.id.value);
     },
+  },
+  methods: {
     setTabLoading(bool) {
       this.tabLoading = bool;
     },

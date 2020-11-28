@@ -212,8 +212,7 @@ export const editView = {
       });
     },
     resetForm() {
-      this.$refs.form.resetFields();
-      location.href = this.form.id
+      return this.fields.id.value
         ? this.detailViewLink(this.module, this.form.id)
         : this.listViewLink(this.module);
     }
