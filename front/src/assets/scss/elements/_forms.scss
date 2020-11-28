@@ -295,8 +295,7 @@ form {
     max-width: 950px;
   }
 
-  .candidate-form__section,
-  .vacancy-form__section {
+  .tab-form__section {
     display: inline-block;
     // margin-top: 30px;
     width: 100%;
@@ -481,20 +480,6 @@ form {
     font-weight: bold;
   }
 
-  // &__query {
-  //   display: flex;
-  //   flex-direction: row;
-  //   justify-content: space-between;
-
-  //   .el-form-item {
-  //     width: 48%;
-
-  //     label {
-  //       float: none;
-  //     }
-  //   }
-  // }
-
   .select-data-btn {
     position: absolute;
     margin-left: 14px;
@@ -547,24 +532,6 @@ form {
     font-size: 12px;
   }
 
-  .amountWrap {
-    border: 1px solid #e2e2e2;
-    padding: 30px;
-
-    input[type='number'] {
-      text-align: center;
-    }
-
-    .dialog-footer {
-      text-align: right;
-      margin-top: 30px;
-
-      button {
-        width: 48%;
-      }
-    }
-  }
-
   label {
     font-weight: normal;
   }
@@ -591,24 +558,6 @@ form {
     text-decoration: none;
     background: #e5f7ff;
   }
-}
-
-// hh styles
-.el-avatar > img,
-.bloko-columns-wrapper,
-.bloko-column_m-12,
-.bloko-column_m-9,
-.bloko-columns-row {
-  width: 100% !important;
-}
-
-.bloko-column_m-7,
-.bloko-column_s-6 {
-  width: calc(100% - 160px) !important;
-}
-
-.resume-sidebar-background {
-  width: 0 !important;
 }
 
 .el-tooltip {

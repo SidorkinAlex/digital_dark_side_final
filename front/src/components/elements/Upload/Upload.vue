@@ -2,7 +2,7 @@
   <el-upload
     :name="name"
     :class="[
-      'candidate-form__upload',
+      'tab-form__upload',
       name == 'photo_file' && uploaded ? 'uploaded' : ''
     ]"
     ref="upload"

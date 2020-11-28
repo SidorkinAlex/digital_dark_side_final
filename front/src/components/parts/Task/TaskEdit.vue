@@ -296,7 +296,7 @@
 </template>
 <script>
 import { mixin, editView } from '@/utils/mixins';
-import { MODULE, FIELD /*, BUTTON,*/ } from '@/utils/constants';
+import { MODULE, FIELD } from '@/utils/constants';
 import SelectEl from 'Elements/Select/SelectEl.vue';
 import InputEl from 'Elements/Input/Input.vue';
 import CheckboxEl from 'Elements/Checkbox/Checkbox.vue';

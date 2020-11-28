@@ -1,5 +1,3 @@
-/* global listViewSearchIcon */
-
 export const rand = function(min, max) {
   return Math.floor(min + Math.random() * (max - min + 1));
 };
@@ -49,146 +47,6 @@ export const scrollToError = (fields, scroll_value = 0, elem = window) => {
   }
 };
 
-export const showFilter = () => {
-  listViewSearchIcon.toggleSearchDialog('latest');
-  $('#searchDialog .nav-tabs .active').removeClass('active');
-  $('#searchDialog .nav-tabs li')
-    .first()
-    .addClass('active');
-  $('#searchDialog').modal('toggle');
-};
-
-export const sklonenieCandidates = (num, type) => {
-  const n = Number(num);
-  const str = type === 'string' ? num : String(num);
-  const lastDigit = str[str.length - 1];
-
-  if (lastDigit == 1 && n !== 11) {
-    return 'кандидат';
-  } else if (
-    (n > 1 && n < 5) ||
-    (n > 21 && (lastDigit == 2 || lastDigit == 3 || lastDigit == 4))
-  ) {
-    return 'кандидата';
-  } else {
-    return 'кандидатов';
-  }
-};
-
-export const setContactData = (
-  type,
-  value = null,
-  contacts = [],
-  index = null
-) => {
-  let label = '';
-  let icon = '';
-  let link = value || '';
-  let htmlType = 'text';
-  const hasPhone = contacts.filter(
-    (item, idx) => idx < index && item.value_type === 'phone'
-  ).length;
-
-  switch (type) {
-    case 'phone':
-      if (index !== null) {
-        label =
-          !contacts.length || !hasPhone
-            ? 'Основной телефон'
-            : 'Дополнительный телефон';
-      } else {
-        label = 'Телефон';
-      }
-      icon = ['fab', 'whatsapp-square'];
-      link = value ? `https://wa.me/${value.replace(/\D/g, '')}` : '';
-      htmlType = 'tel';
-      break;
-
-    case 'email':
-      label = 'E-mail';
-      icon = ['far', 'envelope'];
-      link = value ? `mailto:${value}` : '';
-      htmlType = 'email';
-      break;
-
-    case 'telegram':
-      label = 'Telegram';
-      icon = ['fab', 'telegram'];
-      link = value ? `https://t.me/${value}` : '';
-      break;
-
-    case 'skype':
-      label = 'Skype';
-      icon = ['fab', 'skype'];
-      link = value ? `skype:${value}?chat` : '';
-      break;
-
-    case 'facebook':
-      label = 'Facebook';
-      icon = ['fab', 'facebook'];
-      htmlType = 'url';
-      break;
-
-    case 'freelance':
-      label = 'Фриланс';
-      icon = ['fas', 'laptop'];
-      htmlType = 'url';
-      break;
-
-    case 'site':
-      label = 'Сайт';
-      icon = ['fas', 'globe'];
-      htmlType = 'url';
-      break;
-
-    case 'linkedin':
-      label = 'LinkedIn';
-      icon = ['fab', 'linkedin-in'];
-      htmlType = 'url';
-      break;
-
-    case 'livejournal':
-      label = 'LiveJournal';
-      icon = ['fas', 'pencil-alt'];
-      htmlType = 'url';
-      break;
-
-    case 'moi_krug':
-      label = 'Мой Круг';
-      icon = ['fas', 'users'];
-      htmlType = 'url';
-      break;
-
-    case 'icq':
-      label = 'ICQ';
-      icon = ['far', 'comment'];
-      break;
-
-    default:
-      break;
-  }
-
-  return { label, icon, link, htmlType };
-};
-
-export const stagesLength = stages => {
-  if (stages.hasOwnProperty('length')) {
-    return stages.length;
-  } else {
-    return Object.keys(stages).length;
-  }
-};
-
-export const stageWidth = (amount, width) => {
-  const unit = width ? 'px' : '%';
-  return (width || 100) / amount + unit;
-};
-
-export const stageLabel = stage => {
-  const { name, count } = stage;
-  return `${count} ${sklonenieCandidates(count)} на этапе "${name}"`;
-};
-
 export const editView = (module, id) => {
   return `/index.php?module=${module}&action=EditView&record=${id}`;
 };
@@ -199,53 +57,25 @@ export const detailView = (module, id) => {
 
 export const listView = module => {
   return `/index.php?module=${module}&action=index`;
-}
-
-export const setStageIcon = stage => {
-  return `/index.php?entryPoint=download&id=${stage.id}_stage_icon&type=HRPAC_SELECTION_STAGE`;
 };
 
 export const page = module => {
   return {
-    isVacancy: module === 'HRPAC_VACANCY',
-    isCandidate: module === 'HRPAC_CANDIDATES',
-    isPanel: module === 'panel_Selection'
+    isTask: module === 'DIGIT_TASK'
   };
 };
 
-export const addStageStyles = (module, stage, stages, condition /*,fullW*/) => {
-  const { isCandidate, isVacancy, isPanel } = page(module);
+export const addStageStyles = (module, stage) => {
+  const { isTask } = page(module);
   const styles = {};
 
-  if (!isCandidate || (isCandidate && condition)) {
+  if (isTask) {
     styles.background = stage.color;
     styles.color = '#ffffff';
   }
-  if (isPanel && condition) {
-    styles.background = '#ffffff';
-    styles.color = stage.color;
-  }
-  if (!isVacancy && !isPanel) {
-    styles.width = stageWidth(stagesLength(stages) /*, fullW*/);
-  }
 
   stage['styles'] = styles;
-
   return stage;
-};
-
-export const listUrlParams = (module, relateModule, id) => {
-  return {
-    module,
-    relate_mdule: relateModule,
-    relate_id: id,
-    relate_mdule_link: 'hrpac_vacancy_hrpac_candidates_1',
-    action: 'Popup',
-    mode: 'MultiSelect',
-    only_assigned: 1,
-    jsqon_return: 1,
-    to_pdf: true
-  };
 };
 
 export const setUrlParam = (action, module) => {
@@ -258,18 +88,6 @@ export const setUrlParam = (action, module) => {
 
       case 'Popup':
         param += 'Card';
-        break;
-
-      case 'HRPAC_CANDIDATES':
-        param += 'C';
-        break;
-
-      case 'HRPAC_VACANCY':
-        param += 'V';
-        break;
-
-      case 'HRPAC_VACANCY_TEMPLATE':
-        param += 'T';
         break;
 
       default:
@@ -306,28 +124,4 @@ export const getVal = (source1 = {}, source2 = {}, name, defaultVal) => {
     : source2 && source2[name]
     ? source2[name.toUpperCase()]
     : defaultVal;
-};
-
-export const copyText = (self, id) => {
-  let range;
-  const elem = document.getElementById(id);
-
-  if (document.selection) {
-    // IE
-    range = document.body.createTextRange();
-    range.moveToElementText(elem);
-    range.select();
-  } else if (window.getSelection) {
-    elem.select();
-  }
-
-  const copied = document.execCommand('copy');
-  if (copied) {
-    self.$message({
-      offset: 100,
-      showClose: true,
-      message: 'Текст скопирован',
-      type: 'success'
-    });
-  }
 };

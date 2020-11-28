@@ -1,6 +1,9 @@
 // modules
 export const MODULE = {
-  DIGIT_TASK: 'DIGIT_TASK'
+  DIGIT_TASK: 'DIGIT_TASK',
+  HRPAC_TAGS: 'HRPAC_TAGS',
+  HRPAC_COMMENTS: 'HRPAC_COMMENTS',
+  DOCUMENTS: 'Documents',
 };
 
 // field params, types, ids
@@ -45,6 +48,29 @@ export const FIELD = {
     DISABLED: 'disabled',
     REQUIRED: 'required'
   }
+};
+
+// actions
+export const ACTION = {
+  EDIT_VIEW: 'EditView',
+  DETAIL_VIEW: 'DetailView',
+  POPUP: 'Popup',
+  JSON_LIST: 'json_list',
+  SAVE: 'Save',
+  DELETE: 'Delete',
+  SUBPANEL_JSON_DATA: 'subpanel_json_data',
+  GET_CANDIDATE_TAGS: 'getCandidatesTags',
+  ADD_TAG_TO_CANDIDATE: 'addTagToCandidate',
+  CREATE_TAG: 'createTag',
+  REMOVE_TAG_FROM_CANDIDATE: 'removeTagFromCandidate',
+  GET_SUBPANEL_JSON_DATA: 'get_subpanel_json_data',
+  DELETE_RELATIONSHIP: 'DeleteRelationship'
+};
+
+// subpanels
+export const SUBPANEL = {
+  COMMENTS: 'hrpac_comments',
+  DOCUMENTS: 'digit_task_documents_1'
 };
 
 export const SCROLL_VALUE = 90;

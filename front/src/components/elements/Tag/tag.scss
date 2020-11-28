@@ -1,0 +1,94 @@
+.tags {
+  width: 100%;
+  display: inline-block;
+  margin-bottom: 10px;
+  overflow: hidden;
+  padding: 2px 0;
+
+  .el-collapse {
+    border: none;
+  }
+
+  .el-collapse-item {
+    &__wrap {
+      border: none;
+    }
+
+    & > div:first-child {
+      display: none;
+    }
+
+    &__content {
+      padding: 0;
+    }
+  }
+}
+
+.saved-tags {
+  display: inline;
+  margin-left: 5px;
+  position: relative;
+
+  .el-tag {
+    margin-right: 5px;
+    position: relative;
+  }
+
+  .el-loading-spinner {
+    margin-top: -11px;
+
+    .circular {
+      width: 22px;
+      height: 22px;
+    }
+  }
+}
+
+.tag-form {
+  max-width: 450px;
+  border: none;
+  padding: 10px 0;
+
+  .el-button {
+    font-size: 12px;
+    text-transform: none;
+    line-height: 1;
+    height: auto;
+    padding: 7px 15px;
+
+    .el-loading-spinner {
+      margin-top: -14px;
+
+      .circular {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  }
+
+  .el-select__input {
+    background-color: transparent !important;
+  }
+}
+
+.add-tag-btn {
+  padding: 0 10px 10px;
+
+  .el-radio {
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    &__label {
+      color: #96caff;
+      margin-left: 5px;
+      padding: 0;
+
+      &:hover {
+        border-bottom: 1px solid #96caff;
+      }
+    }
+  }
+}
