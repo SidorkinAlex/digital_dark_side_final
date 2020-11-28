@@ -1,5 +1,5 @@
 <?php
-// created: 2020-10-17 14:08:16
+// created: 2020-11-28 22:54:33
 $searchFields['DIGIT_TASK'] = array (
   'name' => 
   array (
@@ -92,31 +92,31 @@ $searchFields['DIGIT_TASK'] = array (
     'enable_range_search' => true,
     'is_date_field' => true,
   ),
-    'tags_ids' =>
-        array (
-            'query_type'=>'format',
-            'operator' => 'subquery',
-            'no_quotes' => true,
-            'subquery' => "
+  'tags_ids' => 
+  array (
+    'query_type' => 'format',
+    'operator' => 'subquery',
+    'no_quotes' => true,
+    'subquery' => '
                 SELECT 
                    `digit_task_hrpac_tags`.`digit_task_id` 
                 FROM 
                     `digit_task_hrpac_tags`
                 WHERE 
                     `digit_task_hrpac_tags`.`deleted` = 0
-                    AND `digit_task_hrpac_tags`.`hrpac_tags_id` IN ('{0}')
-            ",
-            'db_field' =>
-                array (
-                    0 => 'id',
-                ),
-        ),
-    'digit_workshop_id' =>
-        array (
-            'query_type'=>'format',
-            'operator' => 'subquery',
-            'no_quotes' => true,
-            'subquery' => "
+                    AND `digit_task_hrpac_tags`.`hrpac_tags_id` IN (\'{0}\')
+            ',
+    'db_field' => 
+    array (
+      0 => 'id',
+    ),
+  ),
+  'digit_workshop_id' => 
+  array (
+    'query_type' => 'format',
+    'operator' => 'subquery',
+    'no_quotes' => true,
+    'subquery' => '
                 SELECT
                     `digit_assigned_user`.`digit_task_id`
                 FROM
@@ -127,19 +127,19 @@ $searchFields['DIGIT_TASK'] = array (
                     `digit_workshop` ON `users`.`digit_workshop_id` = `digit_workshop`.`id` AND `digit_workshop`.`deleted` = 0
                 WHERE
                     `digit_assigned_user`.`deleted` = 0
-                    AND `users`.`digit_workshop_id` IN ('{0}')
-            ",
-            'db_field' =>
-                array (
-                    0 => 'id',
-                ),
-        ),
-    'digit_section_id' =>
-        array (
-            'query_type'=>'format',
-            'operator' => 'subquery',
-            'no_quotes' => true,
-            'subquery' => "
+                    AND `users`.`digit_workshop_id` IN (\'{0}\')
+            ',
+    'db_field' => 
+    array (
+      0 => 'id',
+    ),
+  ),
+  'digit_section_id' => 
+  array (
+    'query_type' => 'format',
+    'operator' => 'subquery',
+    'no_quotes' => true,
+    'subquery' => '
                 SELECT
                     `digit_assigned_user`.`digit_task_id`
                 FROM
@@ -150,19 +150,19 @@ $searchFields['DIGIT_TASK'] = array (
                     `digit_section` ON `users`.`digit_section_id` = `digit_section`.`id` AND `digit_section`.`deleted` = 0
                 WHERE
                     `digit_assigned_user`.`deleted` = 0
-                    AND `users`.`digit_section_id` IN ('{0}')
-            ",
-            'db_field' =>
-                array (
-                    0 => 'id',
-                ),
-        ),
-    'digit_block_id' =>
-        array (
-            'query_type'=>'format',
-            'operator' => 'subquery',
-            'no_quotes' => true,
-            'subquery' => "
+                    AND `users`.`digit_section_id` IN (\'{0}\')
+            ',
+    'db_field' => 
+    array (
+      0 => 'id',
+    ),
+  ),
+  'digit_block_id' => 
+  array (
+    'query_type' => 'format',
+    'operator' => 'subquery',
+    'no_quotes' => true,
+    'subquery' => '
                 SELECT
                     `digit_assigned_user`.`digit_task_id`
                 FROM
@@ -173,11 +173,11 @@ $searchFields['DIGIT_TASK'] = array (
                     `digit_block` ON `users`.`digit_block_id` = `digit_block`.`id` AND `digit_block`.`deleted` = 0
                 WHERE
                     `digit_assigned_user`.`deleted` = 0
-                    AND `users`.`digit_block_id` IN ('{0}')
-            ",
-            'db_field' =>
-                array (
-                    0 => 'id',
-                ),
-        ),
+                    AND `users`.`digit_block_id` IN (\'{0}\')
+            ',
+    'db_field' => 
+    array (
+      0 => 'id',
+    ),
+  ),
 );

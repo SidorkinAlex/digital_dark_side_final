@@ -1,18 +1,15 @@
-{* <task-edit :fields="fields" :mod="mod" :date-format="dateFormat"></task-edit> *}
 <script src="recorder-worker.js"></script>
-<speech-recognizer
+{* <speech-recognizer
   :server="server"
   :path="path"
-  :path="path"
-  :fields="fields"
-  :mod="mod"
-  :date-format="dateFormat"
 ></speech-recognizer>
-<br>
+<br> *}
 <task-edit
   :fields="fields"
   :mod="mod"
   :date-format="dateFormat"
+  :server="server"
+  :path="path"
 ></task-edit>
 <script>
   const fields = {$fields|@json_encode};
@@ -38,9 +35,8 @@
       }
     },
     components: {
-      'speech': CRMSuite.default.SpeechRecognizer,
+      //'speech': CRMSuite.default.SpeechRecognizer,
       'task-edit': CRMSuite.default.TaskEdit
-      //'task': CRMSuite.default.TaskEdit,
     },
   });
   {/literal}

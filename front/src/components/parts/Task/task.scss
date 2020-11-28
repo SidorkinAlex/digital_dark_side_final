@@ -151,19 +151,22 @@
     margin-right: 1em;
     padding: 0 1em 1em 1em;
     box-shadow: -6px 4px 10px 0 rgba(76, 91, 92, 0.42);
+    width: 65%;
   }
 
   &__comments {
     @extend .border-radius;
     // @extend %card-info;
     flex: 1;
-    margin-right: 1em;
     padding: 0 1em 1em 1em;
     box-shadow: -6px 4px 10px 0 rgba(76, 91, 92, 0.42);
 
     &__s-comment {
       margin-bottom: 1em;
     }
+  }
+  .subtask-tab {
+    overflow: auto;
   }
 
   .el-table {

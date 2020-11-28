@@ -52,6 +52,14 @@
                 @set-loading="setTabLoading"
               ></assigned-users>
             </el-tab-pane>
+            <el-tab-pane label="Подзадачи" name="subtasks">
+              <subtask-tab
+                v-if="tabDataLoaded.subtasks"
+                :id="data.id.value"
+                :module="module"
+                @set-loading="setTabLoading"
+              ></subtask-tab>
+            </el-tab-pane>
           </el-tabs>
         </div>
         <div class="task-view__comments">
@@ -76,6 +84,7 @@ import { MODULE, FIELD } from '@/utils/constants';
 import TagForm from 'Elements/Tag/TagForm';
 import TaskItem from 'Parts/Task/TaskItem';
 import DocumentTab from 'Elements/Tab/DocumentTab';
+import SubtaskTab from 'Elements/Tab/SubTaskTab';
 import CommentTab from 'Elements/Tab/CommentTab';
 import DescriptionTab from 'Elements/Tab/DescriptionTab';
 import AssignedUsers from 'Elements/Tab/AssignedUsers';
@@ -117,7 +126,7 @@ export default {
       this.tabLoading = bool;
     },
     tabClick(tab) {
-      const mustLazyLoaded = ['documents', 'assigned'];
+      const mustLazyLoaded = ['documents', 'assigned', 'subtasks'];
       if (mustLazyLoaded.includes(tab.name) && !this.tabDataLoaded[tab.name]) {
         this.tabLoading = true;
         this.$set(this.tabDataLoaded, tab.name, true);
@@ -129,6 +138,7 @@ export default {
     TaskItem,
     DescriptionTab,
     DocumentTab,
+    SubtaskTab,
     CommentTab,
     AssignedUsers
   }

@@ -64,7 +64,8 @@ export const ACTION = {
   CREATE_TAG: 'createTag',
   REMOVE_TAG_FROM_CANDIDATE: 'removeTagFromCandidate',
   GET_SUBPANEL_JSON_DATA: 'get_subpanel_json_data',
-  DELETE_RELATIONSHIP: 'DeleteRelationship'
+  DELETE_RELATIONSHIP: 'DeleteRelationship',
+  SUBPANEL_VIEWER: 'SubPanelViewer'
 };
 
 // subpanels

@@ -32,8 +32,10 @@
                 <InputEl
                   :field="fields.name"
                   :model="form.name"
+                  :record-btn-class="recordingClass['name']"
+                  :key="updateRecorded"
                   @set-value="setValue"
-                  @record-voice="recordVoice"
+                  @recognize="recognizeVoice"
                 >
                 </InputEl>
               </el-form-item>
@@ -309,11 +311,12 @@
                   :model="form.description"
                   @set-value="setValue"
                   class="el-input--suffix"
+                  :key="updateRecorded"
                 >
                 </InputEl>
                 <span
-                  @click="recordVoice('description')"
-                  class="el-input__icon el-icon-microphone"
+                  @click="recognizeVoice('description')"
+                  :class="['el-input__icon', recordingClass['description']]"
                 ></span>
               </el-form-item>
             </el-card>
@@ -324,6 +327,7 @@
   </div>
 </template>
 <script>
+import { DictateService } from 'Parts/speechRecognizer/dictate-service';
 import { mixin, editView } from '@/utils/mixins';
 import { MODULE, FIELD } from '@/utils/constants';
 import SelectEl from 'Elements/Select/SelectEl.vue';
@@ -335,12 +339,21 @@ export default {
   props: {
     fields: Object,
     mod: Object,
-    dateFormat: Object
+    dateFormat: Object,
+    path: String,
+    server: String
   },
   data() {
     return {
       module: MODULE.DIGIT_TASK,
       FIELD,
+      dictateService: null,
+      recordingClass: {
+        name: 'el-icon-microphone',
+        description: 'el-icon-microphone'
+      },
+      textDataBase: '',
+      textData: '',
       form: {},
       rules: {},
       options: {},
@@ -373,10 +386,12 @@ export default {
         'date_plan',
         'date_fact',
         'description'
-      ]
+      ],
+      updateRecorded: 0
     };
   },
   created() {
+    this.dictateService = new DictateService(this.server, this.path);
     const format = this.setDateFormat(this.dateFormat);
     this.$set(this.datepicker, 'date', format);
 
@@ -414,8 +429,42 @@ export default {
     }
   },
   methods: {
-    recordVoice(name) {
-      console.log('record', name);
+    recognizeVoice(name) {
+      // recognize voice
+      if (!this.dictateService.isInitialized()) {
+        this.dictateService.init({
+          server: this.server,
+          onResults: hyp => {
+            this.textDataBase = this.textDataBase + ' ' + hyp + '\n';
+            this.textData = this.textDataBase;
+            this.form = {...this.form, [name]: this.textDataBase}
+            this.updateRecorded++;
+
+            console.log('result', this.form[name]);
+          },
+          onPartialResults: hyp => {
+            this.textData = this.textDataBase + hyp;
+            this.$set(this.form, name, this.textData);
+            this.updateRecorded++;
+          },
+          // onError: (/*code, data*/) => {
+          //   // console.log(code, data);
+          // },
+          // onEvent: (/*code, data*/) => {
+          //   // console.log(code, data);
+          // }
+        });
+        this.$set(this.recordingClass, name, 'el-icon-turn-off-microphone');
+      } else if (this.dictateService.isRunning()) {
+        this.dictateService.resume();
+        this.$set(this.recordingClass, name, 'el-icon-turn-off-microphone');
+      } else {
+        this.dictateService.pause();
+        this.dictateService = new DictateService(this.server, this.path);
+        this.textDataBase = '';
+        this.textData = '';
+        this.$set(this.recordingClass, name, 'el-icon-microphone');
+      }
     },
     assignedLabel(name) {
       const value = this.form[name];

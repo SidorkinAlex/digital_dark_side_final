@@ -12,10 +12,10 @@
     @input.native="$emit('set-value', field.name, localModel)"
   >
     <i
-      v-if="field.type !== FIELD.TYPE.INT"
+      v-if="field.type !== FIELD.TYPE.INT && field.type !== FIELD.TYPE.TEXT"
       slot="suffix"
-      @click="$emit('record-voice', field.name)"
-      class="el-input__icon el-icon-microphone"
+      @click="$emit('recognize', field.name)"
+      :class="['el-input__icon', recordBtnClass]"
     ></i>
   </el-input>
 </template>
@@ -27,7 +27,11 @@ export default {
   mixins: [editView],
   props: {
     field: Object,
-    model: String
+    model: String,
+    recordBtnClass: {
+      type: String,
+      default: ''
+    }
   },
   data() {
     return {
@@ -37,7 +41,6 @@ export default {
   },
   computed: {
     inputType() {
-      console.log(this.field);
       return this.field.type === FIELD.TYPE.INT
         ? 'number'
         : this.field.type === FIELD.TYPE.TEXT

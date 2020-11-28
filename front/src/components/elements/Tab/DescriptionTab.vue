@@ -1,6 +1,6 @@
 <template>
   <div class="description-tab">
-    <div class="label-value">
+    <!-- <div class="label-value">
       <span class="label-value__label">Цех</span>
       <span class="label-value__value">
         {{ data.digit_workshop_name.value }}
@@ -17,7 +17,7 @@
       <span class="label-value__value">
         {{ data.digit_block_name.value }}
       </span>
-    </div>
+    </div> -->
     <div class="label-value">
       <span class="label-value__label">Описание</span>
       <span

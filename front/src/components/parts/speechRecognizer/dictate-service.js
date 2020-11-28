@@ -3,7 +3,7 @@ export class DictateService {
     // Defaults
     this.SERVER = server;
     // Send blocks 4 x per second as recommended in the server doc.
-    this.INTERVAL = 250;
+    this.INTERVAL = 100;
     // Path to worker javascript
     this.WORKER_PATH = path;
 
@@ -32,7 +32,7 @@ export class DictateService {
     this.config = cfg || {};
     this.config.server = this.config.server || this.SERVER;
     this.config.audioSourceId = this.config.audioSourceId;
-    this.config.interval = this.config.interval || this.INTERVAL;
+    this.config.interval = this.INTERVAL;
     this.config.onReadyForSpeech =
       this.config.onReadyForSpeech || function() {};
     this.config.onEndOfSpeech = this.config.onEndOfSpeech || function() {};
@@ -165,7 +165,7 @@ export class DictateService {
           // Otherwise it's the EOS tag (string)
         } else {
           this.ws.send(blob);
-          this.config.onEvent(this.MSG_SEND_EOS, 'Send tag: ' + blob);
+          // this.config.onEvent(this.MSG_SEND_EOS, 'Send tag: ' + blob);
         }
       } else {
         this.config.onError(
@@ -249,7 +249,6 @@ export class DictateService {
   initWorker(source) {
     var node = source.context.createScriptProcessor(4096, 1, 1);
     this.worker = new Worker(this.WORKER_PATH);
-    console.log(111, this.worker, typeof this.worker.postMessage, node, Worker, this.worker.__proto__.postMessage)
 
     this.worker.onmessage = e => {
       if (this.paused) return;
