@@ -528,3 +528,21 @@ if (!function_exists('generator_letters')) {
         return substr(str_shuffle('AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz'),1,$length);
     }
 }
+
+// проверка вхождения подстроки в стоку
+if (!function_exists('is_in_str')) {
+    /**
+     * @param string $str_serch строка в которой ищем
+     * @param string $substr подстрока которую ижем
+     * @return bool
+     */
+    function is_in_str(string $str_serch, string $substr)
+    {
+        $result = strpos($str_serch, $substr);
+        if ($result === FALSE) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+}

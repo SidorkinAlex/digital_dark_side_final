@@ -161,9 +161,11 @@ if (!empty($logindisplay)) {
 // RECAPTCHA
 require_once __DIR__.'/../../include/utils/recaptcha_utils.php';
 $sugar_smarty->assign('CAPTCHA', displayRecaptcha());
-
+if(is_in_str($_SERVER['REQUEST_URI'],'/entryPoint/mobile')){
+    SugarApplication::redirect($sugar_config['site_url'].'/index.php?action=Login&module=Users&login_action=mobile');
+}
 if (file_exists('custom/themes/' . SugarThemeRegistry::current() . '/login.tpl')) {
-    $sugar_smarty->display('custom/themes/' . SugarThemeRegistry::current() . '/login.tpl');
+   $sugar_smarty->display('custom/themes/' . SugarThemeRegistry::current() . '/login.tpl');
 } elseif (file_exists('custom/modules/Users/login.tpl')) {
     $sugar_smarty->display('custom/modules/Users/login.tpl');
 } elseif (file_exists('themes/' . SugarThemeRegistry::current() . '/tpls/login.tpl')) {

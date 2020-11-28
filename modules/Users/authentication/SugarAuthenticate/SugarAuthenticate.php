@@ -479,6 +479,9 @@ class SugarAuthenticate
     public function redirectToLogin(SugarApplication $app)
     {
         $loginVars = $app->createLoginVars();
+        if(is_in_str($_SERVER['REQUEST_URI'],'/entryPoint/mobile')){
+            SugarApplication::redirect($sugar_config['site_url'].'/index.php?action=Login&module=Users&login_action=mobile');
+        }
         SugarApplication::redirect('index.php?action=Login&module=Users' . $loginVars);
     }
 }
