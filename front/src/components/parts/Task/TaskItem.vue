@@ -5,7 +5,7 @@
         <div class="task-item__left-top">
           <div class="task-item__title">
             <el-tooltip
-              :content="getValue('complexity', '')"
+              :content="`Сложность: ${getValue('complexity', '')}`"
               placement="top-start"
             >
               <level :level="levels[task.complexity.value]"></level>
