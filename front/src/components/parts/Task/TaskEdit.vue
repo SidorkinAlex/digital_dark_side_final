@@ -432,21 +432,21 @@ export default {
         this.dictateService.init({
           server: this.server,
           onResults: hyp => {
-            console.log('result');
             this.textDataBase = this.textDataBase + ' ' + hyp + '\n';
             this.textData = this.textDataBase;
             this.$set(this.form, name, this.textDataBase);
+            console.log('result', this.form[name], this.textDataBase);
           },
           onPartialResults: hyp => {
             console.log('partial');
             this.textData = this.textDataBase + hyp;
           },
-          onError: (/*code, data*/) => {
-            // console.log(code, data);
-          },
-          onEvent: (/*code, data*/) => {
-            // console.log(code, data);
-          }
+          // onError: (/*code, data*/) => {
+          //   // console.log(code, data);
+          // },
+          // onEvent: (/*code, data*/) => {
+          //   // console.log(code, data);
+          // }
         });
         this.$set(this.recordingClass, name, 'el-icon-turn-off-microphone');
       } else if (this.dictateService.isRunning()) {
@@ -454,7 +454,8 @@ export default {
         this.$set(this.recordingClass, name, 'el-icon-turn-off-microphone');
       } else {
         this.dictateService.pause();
-        this.dictateService = new DictateService();
+        this.dictateService = new DictateService(this.server, this.path);
+        console.log(this.dictateService, typeof DictateService)
         this.textDataBase = '';
         this.textData = '';
         this.$set(this.recordingClass, name, 'el-icon-microphone');

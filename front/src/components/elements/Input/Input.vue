@@ -28,7 +28,10 @@ export default {
   props: {
     field: Object,
     model: String,
-    recordBtnClass: String
+    recordBtnClass: {
+      type: String,
+      default: ''
+    }
   },
   data() {
     return {
