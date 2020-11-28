@@ -1,7 +1,7 @@
 <template>
   <div class="task-edit">
     <div class="control-panel" v-scroll="handleScroll">
-      <div v-loading="loading">
+      <div v-loading="loading" class="inline-buttons">
         <el-button type="primary" @click="saveForm">
           <span>Сохранить</span>
         </el-button>
@@ -33,7 +33,9 @@
                   :field="fields.name"
                   :model="form.name"
                   @set-value="setValue"
-                ></InputEl>
+                  @record-voice="recordVoice"
+                >
+                </InputEl>
               </el-form-item>
               <el-form-item
                 class="row"
@@ -277,7 +279,13 @@
                   :field="fields.description"
                   :model="form.description"
                   @set-value="setValue"
-                ></InputEl>
+                  class="el-input--suffix"
+                >
+                </InputEl>
+                <span
+                  @click="recordVoice('description')"
+                  class="el-input__icon el-icon-microphone"
+                ></span>
               </el-form-item>
             </el-card>
           </div>
@@ -370,6 +378,11 @@ export default {
           this.setOptions(fieldOptions, name);
         }
       }
+    }
+  },
+  methods: {
+    recordVoice(name) {
+      console.log('record', name)
     }
   },
   components: {

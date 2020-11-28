@@ -248,7 +248,7 @@
                 </div>
               </div>
             </el-tab-pane>
-            <el-tab-pane label="Подзадачи" name="subtasks">
+            <el-tab-pane label="Ответственные" name="subtasks">
               test data
             </el-tab-pane>
           </el-tabs>
