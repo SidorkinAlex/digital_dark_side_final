@@ -18,8 +18,9 @@
 
   input[type='text'],
   input[type='number'],
+  .el-select__input,
   textarea {
-    background: #f0faf8;
+    background: #f0faf8 !important;
   }
 
   .el-input--suffix .el-input__inner {
@@ -568,4 +569,8 @@
       white-space: normal;
     }
   }
+}
+
+.el-tag.el-tag--info {
+  background-color: #d8e5e1;
 }

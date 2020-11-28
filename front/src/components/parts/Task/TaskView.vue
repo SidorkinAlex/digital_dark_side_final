@@ -43,8 +43,14 @@
                 @set-loading="setTabLoading"
               ></document-tab>
             </el-tab-pane>
-            <el-tab-pane label="Ответственные" name="subtasks">
-              test data
+            <el-tab-pane label="Ответственные в задаче" name="assigned">
+              <assigned-users
+                v-if="tabDataLoaded.assigned"
+                :data="data"
+                :task-id="data.id.value"
+                :module="module"
+                @set-loading="setTabLoading"
+              ></assigned-users>
             </el-tab-pane>
           </el-tabs>
         </div>
@@ -72,6 +78,7 @@ import TaskItem from 'Parts/Task/TaskItem';
 import DocumentTab from 'Elements/Tab/DocumentTab';
 import CommentTab from 'Elements/Tab/CommentTab';
 import DescriptionTab from 'Elements/Tab/DescriptionTab';
+import AssignedUsers from 'Elements/Tab/AssignedUsers';
 export default {
   mixins: [mixin],
   props: {
@@ -110,12 +117,12 @@ export default {
       this.tabLoading = bool;
     },
     tabClick(tab) {
-      const mustLoaded = ['documents'];
-      if (mustLoaded.includes(tab.name) && !this.tabDataLoaded[tab.name]) {
+      const mustLazyLoaded = ['documents', 'assigned'];
+      if (mustLazyLoaded.includes(tab.name) && !this.tabDataLoaded[tab.name]) {
         this.tabLoading = true;
         this.$set(this.tabDataLoaded, tab.name, true);
       }
-    },
+    }
   },
   components: {
     TagForm,
@@ -123,6 +130,7 @@ export default {
     DescriptionTab,
     DocumentTab,
     CommentTab,
+    AssignedUsers
   }
 };
 </script>

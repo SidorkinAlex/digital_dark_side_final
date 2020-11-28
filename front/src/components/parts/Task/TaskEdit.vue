@@ -79,6 +79,35 @@
                 >
                 </SelectEl>
               </el-form-item>
+              <el-form-item
+                class="row"
+                prop="digit_tasks_class"
+                :label="mod[fields.digit_tasks_class.vname]"
+              >
+                <SelectEl
+                  :model="form.digit_tasks_class"
+                  :field="fields.digit_tasks_class"
+                  :options="options.digit_tasks_class"
+                  @change-option="changeOption"
+                  @set-value="setValue"
+                >
+                </SelectEl>
+              </el-form-item>
+              <el-form-item
+                v-if="form.digit_tasks_class"
+                class="row"
+                :prop="assignedName('digit_tasks_class')"
+                :label="assignedLabel('digit_tasks_class')"
+              >
+                <SelectEl
+                  :model="form[assignedName('digit_tasks_class')]"
+                  :field="fields[assignedName('digit_tasks_class')]"
+                  :options="options[assignedName('digit_tasks_class')]"
+                  @change-option="changeOption"
+                  @set-value="setValue"
+                >
+                </SelectEl>
+              </el-form-item>
             </el-card>
           </div>
           <div class="task-form__section">
@@ -328,6 +357,10 @@ export default {
         'source',
         'digit_project_name',
         'parent_name',
+        'digit_tasks_class',
+        'assigned_users_assigned_ids',
+        'assigned_users_free_form_ids',
+        'assigned_users_info_ids',
         'assigned_user_name',
         'task_manager_name',
         'digit_block_name',
@@ -382,7 +415,16 @@ export default {
   },
   methods: {
     recordVoice(name) {
-      console.log('record', name)
+      console.log('record', name);
+    },
+    assignedLabel(name) {
+      const value = this.form[name];
+      const { options } = this.fields[name];
+      return value ? options[value] : '';
+    },
+    assignedName(name) {
+      const value = this.form[name];
+      return value ? `assigned_users_${value}_ids` : '';
     }
   },
   components: {

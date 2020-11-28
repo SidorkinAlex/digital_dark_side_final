@@ -78,6 +78,13 @@ export const mixin = {
     },
     listViewLink(module) {
       return `/index.php?module=${module}&action=index`;
+    },
+    handleScroll(evt, el) {
+      if (window.scrollY > SCROLL_VALUE) {
+        el.classList.add('scroll');
+      } else {
+        el.classList.remove('scroll');
+      }
     }
   }
 };

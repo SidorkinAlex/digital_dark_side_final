@@ -1,6 +1,4 @@
 import Vue from 'vue';
-import { plural } from '@/utils/helpers';
-import { FIELD, ACTION } from '@/utils/constants';
 
 Vue.filter('toupper', str => {
   if (!str) return '';

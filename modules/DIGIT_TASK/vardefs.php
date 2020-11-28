@@ -717,6 +717,7 @@ $dictionary['DIGIT_TASK'] = array(
             'acl_field' => array(
                 'DetailView'
             ),
+            'multiple' => true,
         ),
         "digit_task_assigned_users_assigned" => array (
             'name' => 'digit_task_assigned_users_assigned',
@@ -757,6 +758,7 @@ $dictionary['DIGIT_TASK'] = array(
             'acl_field' => array(
                 'DetailView'
             ),
+            'multiple' => true,
         ),
         "digit_task_assigned_users_info" => array (
             'name' => 'digit_task_assigned_users_info',
@@ -797,6 +799,7 @@ $dictionary['DIGIT_TASK'] = array(
             'acl_field' => array(
                 'DetailView'
             ),
+            'multiple' => true,
         ),
         "digit_task_assigned_users_free_form" => array (
             'name' => 'digit_task_assigned_users_free_form',

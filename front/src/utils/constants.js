@@ -70,7 +70,8 @@ export const ACTION = {
 // subpanels
 export const SUBPANEL = {
   COMMENTS: 'hrpac_comments',
-  DOCUMENTS: 'digit_task_documents_1'
+  DOCUMENTS: 'digit_task_documents_1',
+  ASSIGNED_TASK_INFO: 'assigned_task_info'
 };
 
 export const SCROLL_VALUE = 90;
