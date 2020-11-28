@@ -12,7 +12,7 @@
     @input.native="$emit('set-value', field.name, localModel)"
   >
     <i
-      v-if="field.type !== FIELD.TYPE.INT"
+      v-if="field.type !== FIELD.TYPE.INT && field.type !== FIELD.TYPE.TEXT"
       slot="suffix"
       @click="$emit('recognize', field.name)"
       :class="['el-input__icon', recordBtnClass]"

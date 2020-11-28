@@ -314,7 +314,6 @@
                 </InputEl>
                 <span
                   @click="recognizeVoice('description')"
-                  @recognize="recognizeVoice"
                   :class="['el-input__icon', recordBtnClass]"
                 ></span>
               </el-form-item>
@@ -425,29 +424,30 @@ export default {
   },
   methods: {
     recognizeVoice(name) {
-      console.log('record', name);
+      // console.log('record', name);
       // recognize voice
       if (!this.dictateService.isInitialized()) {
         this.dictateService.init({
           server: this.server,
           onResults: hyp => {
-            console.log('result', hyp);
-            this.$set(this.form, name, hyp)
-            // this.setValue(name, hyp);
+            console.log('result', name, hyp);
+            // this.$set(this.form, name, hyp)
+            this.setValue(name, hyp);
 
             this.textDataBase = this.textDataBase + hyp + '\n';
             this.textData = this.textDataBase;
           },
           onPartialResults: hyp => {
-            console.log(hyp);
+            console.log(name, hyp);
+            this.setValue(name, hyp);
 
             this.textData = this.textDataBase + hyp;
           },
-          onError: (code, data) => {
-            console.log(code, data);
+          onError: (/*code, data*/) => {
+            // console.log(code, data);
           },
-          onEvent: (code, data) => {
-            console.log(code, data);
+          onEvent: (/*code, data*/) => {
+            // console.log(code, data);
           }
         });
         this.recordBtnClass = 'el-icon-turn-off-microphone';
@@ -455,6 +455,7 @@ export default {
         this.dictateService.resume();
         this.recordBtnClass = 'el-icon-turn-off-microphone';
       } else {
+        console.log('pause');
         this.dictateService.pause();
         this.recordBtnClass = 'el-icon-microphone';
       }
