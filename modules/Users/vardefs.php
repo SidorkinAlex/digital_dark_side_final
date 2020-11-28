@@ -922,6 +922,33 @@ $dictionary['User'] = array(
                 'name',
             ),
         ),
+        "digit_task_assigned_users_assigned" => array (
+            'name' => 'digit_task_assigned_users_assigned',
+            'type' => 'link',
+            'relationship' => 'digit_task_assigned_users_assigned',
+            'source' => 'non-db',
+            'module' => 'DIGIT_TASK',
+            'bean_name' => 'DIGIT_TASK',
+            'vname' => 'LBL_DIGIT_TASK_ASSIGNED_USERS_ASSIGNED',
+        ),
+        "digit_task_assigned_users_info" => array (
+            'name' => 'digit_task_assigned_users_info',
+            'type' => 'link',
+            'relationship' => 'digit_task_assigned_users_info',
+            'source' => 'non-db',
+            'module' => 'DIGIT_TASK',
+            'bean_name' => 'DIGIT_TASK',
+            'vname' => 'LBL_DIGIT_TASK_ASSIGNED_USERS_INFO',
+        ),
+        "digit_task_assigned_users_free_form" => array (
+            'name' => 'digit_task_assigned_users_free_form',
+            'type' => 'link',
+            'relationship' => 'digit_task_assigned_users_free_form',
+            'source' => 'non-db',
+            'module' => 'DIGIT_TASK',
+            'bean_name' => 'DIGIT_TASK',
+            'vname' => 'LBL_DIGIT_TASK_ASSIGNED_USERS_FREE_FORM',
+        ),
     ),
     'indices' => array(
         array(
