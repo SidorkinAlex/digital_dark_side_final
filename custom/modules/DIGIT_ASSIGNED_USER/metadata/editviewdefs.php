@@ -50,6 +50,12 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_TYPICAL_RESPONSES',
           ),
+          1 => 
+          array (
+            'name' => 'type',
+            'studio' => 'visible',
+            'label' => 'LBL_TYPE',
+          ),
         ),
         3 => 
         array (
