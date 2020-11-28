@@ -808,6 +808,19 @@ $dictionary['DIGIT_TASK'] = array(
             'vname' => 'LBL_DIGIT_TASK_ASSIGNED_USERS_FREE_FORM',
         ),
 
+        //Класс задач
+        'digit_tasks_class' =>
+            array (
+                'name' => 'digit_tasks_class',
+                'vname' => 'LBL_DIGIT_TASKS_CLASS',
+                'type' => 'enum',
+                'len' => 100,
+                'options' => 'digit_tasks_class_list',
+                'comment' => '',
+                'required' => false,
+
+            ),
+
     ),
     'relationships' => array (
         'digit_task_users_spectator' =>

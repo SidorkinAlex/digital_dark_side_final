@@ -113,4 +113,5 @@ $mod_strings = array (
     'LBL_DIGIT_TASK_ASSIGNED_USERS_INFO' => 'Исполнители info (связь)',
     'LBL_ASSIGNED_USERS_FREE_FORM_IDS' => 'Исполнители info',
     'LBL_DIGIT_TASK_ASSIGNED_USERS_FREE_FORM' => 'Исполнители info (связь)',
+    'LBL_DIGIT_TASKS_CLASS' => 'Класс задач',
 );
