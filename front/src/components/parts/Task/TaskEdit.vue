@@ -308,7 +308,6 @@
                 <InputEl
                   :field="fields.description"
                   :model="form.description"
-                  :recording="recording.description"
                   @set-value="setValue"
                   class="el-input--suffix"
                 >
@@ -347,7 +346,10 @@ export default {
       module: MODULE.DIGIT_TASK,
       FIELD,
       dictateService: null,
-      recordingClass: {},
+      recordingClass: {
+        name: 'el-icon-microphone',
+        description: 'el-icon-microphone'
+      },
       textDataBase: '',
       textData: '',
       form: {},
