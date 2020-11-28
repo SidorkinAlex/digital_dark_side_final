@@ -44,9 +44,28 @@ $dictionary['DIGIT_WORKSHOP'] = array(
     'inline_edit' => true,
     'duplicate_merge' => true,
     'fields' => array (
-),
+        "digit_workshop_users"  => array(
+            'name'         => 'digit_workshop_users',
+            'type'         => 'link',
+            'relationship' => 'digit_workshop_users',
+            'source'       => 'non-db',
+            'module'       => 'Users',
+            'bean_name'    => 'User',
+            'side'         => 'right',
+            'vname'        => 'LBL_DIGIT_WORKSHOP_USERS_REL_TITLE',
+        ),
+    ),
     'relationships' => array (
-),
+        'digit_workshop_users' => array(
+            'rhs_module'        => 'Users',
+            'rhs_table'         => 'users',
+            'rhs_key'           => 'digit_workshop_id',
+            'lhs_module'        => 'DIGIT_WORKSHOP',
+            'lhs_table'         => 'digit_workshop',
+            'lhs_key'           => 'id',
+            'relationship_type' => 'one-to-many',
+        ),
+    ),
     'optimistic_locking' => true,
     'unified_search' => true,
 );

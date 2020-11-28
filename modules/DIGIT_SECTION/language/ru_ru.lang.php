@@ -74,4 +74,6 @@ $mod_strings = array (
   'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Мероприятия',
   'LBL_DIGIT_SECTION_SUBPANEL_TITLE' => 'Участок',
   'LBL_NEW_FORM_TITLE' => 'Новый Участок',
+    'LBL_DIGIT_SECTION_USERS_REL_TITLE' => 'Исполнители (Связь)',
+    'LBL_DIGIT_SECTION_USERS_SUBPANEL_TITLE' => 'Исполнители',
 );

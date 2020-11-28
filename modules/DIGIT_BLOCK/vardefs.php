@@ -44,9 +44,28 @@ $dictionary['DIGIT_BLOCK'] = array(
     'inline_edit' => true,
     'duplicate_merge' => true,
     'fields' => array (
-),
+        "digit_block_users"  => array(
+            'name'         => 'digit_block_users',
+            'type'         => 'link',
+            'relationship' => 'digit_block_users',
+            'source'       => 'non-db',
+            'module'       => 'Users',
+            'bean_name'    => 'User',
+            'side'         => 'right',
+            'vname'        => 'LBL_DIGIT_BLOCK_USERS_REL_TITLE',
+        ),
+    ),
     'relationships' => array (
-),
+        'digit_block_users' => array(
+            'rhs_module'        => 'Users',
+            'rhs_table'         => 'users',
+            'rhs_key'           => 'digit_block_id',
+            'lhs_module'        => 'DIGIT_BLOCK',
+            'lhs_table'         => 'digit_block',
+            'lhs_key'           => 'id',
+            'relationship_type' => 'one-to-many',
+        ),
+    ),
     'optimistic_locking' => true,
     'unified_search' => true,
 );
