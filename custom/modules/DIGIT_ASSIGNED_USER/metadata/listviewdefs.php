@@ -19,6 +19,14 @@ array (
     'width' => '10%',
     'default' => true,
   ),
+  'TYPE' => 
+  array (
+    'type' => 'enum',
+    'studio' => 'visible',
+    'label' => 'LBL_TYPE',
+    'width' => '10%',
+    'default' => true,
+  ),
   'DESCRIPTION' => 
   array (
     'type' => 'text',

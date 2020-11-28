@@ -111,4 +111,73 @@ $searchFields['DIGIT_TASK'] = array (
                     0 => 'id',
                 ),
         ),
+    'digit_workshop_id' =>
+        array (
+            'query_type'=>'format',
+            'operator' => 'subquery',
+            'no_quotes' => true,
+            'subquery' => "
+                SELECT
+                    `digit_assigned_user`.`digit_task_id`
+                FROM
+                    `digit_assigned_user`
+                LEFT JOIN
+                    `users` ON `digit_assigned_user`.`user_id_c` = `users`.`id` AND `users`.`deleted` = 0
+                LEFT JOIN
+                    `digit_workshop` ON `users`.`digit_workshop_id` = `digit_workshop`.`id` AND `digit_workshop`.`deleted` = 0
+                WHERE
+                    `digit_assigned_user`.`deleted` = 0
+                    AND `users`.`digit_workshop_id` IN ('{0}')
+            ",
+            'db_field' =>
+                array (
+                    0 => 'id',
+                ),
+        ),
+    'digit_section_id' =>
+        array (
+            'query_type'=>'format',
+            'operator' => 'subquery',
+            'no_quotes' => true,
+            'subquery' => "
+                SELECT
+                    `digit_assigned_user`.`digit_task_id`
+                FROM
+                    `digit_assigned_user`
+                LEFT JOIN
+                    `users` ON `digit_assigned_user`.`user_id_c` = `users`.`id` AND `users`.`deleted` = 0
+                LEFT JOIN
+                    `digit_section` ON `users`.`digit_section_id` = `digit_section`.`id` AND `digit_section`.`deleted` = 0
+                WHERE
+                    `digit_assigned_user`.`deleted` = 0
+                    AND `users`.`digit_section_id` IN ('{0}')
+            ",
+            'db_field' =>
+                array (
+                    0 => 'id',
+                ),
+        ),
+    'digit_block_id' =>
+        array (
+            'query_type'=>'format',
+            'operator' => 'subquery',
+            'no_quotes' => true,
+            'subquery' => "
+                SELECT
+                    `digit_assigned_user`.`digit_task_id`
+                FROM
+                    `digit_assigned_user`
+                LEFT JOIN
+                    `users` ON `digit_assigned_user`.`user_id_c` = `users`.`id` AND `users`.`deleted` = 0
+                LEFT JOIN
+                    `digit_block` ON `users`.`digit_block_id` = `digit_block`.`id` AND `digit_block`.`deleted` = 0
+                WHERE
+                    `digit_assigned_user`.`deleted` = 0
+                    AND `users`.`digit_block_id` IN ('{0}')
+            ",
+            'db_field' =>
+                array (
+                    0 => 'id',
+                ),
+        ),
 );
