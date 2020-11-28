@@ -1,12 +1,30 @@
 <template>
-  <div>
-    test data 1
+  <el-table
+    v-if="assignedList.length"
+    ref="assignedTable"
+    :data="assignedList"
+    size="mini"
+    align="left"
+  >
+    <el-table-column
+      v-for="(col, i) in assignedFields"
+      :key="`${col.id}_${i}`"
+      :property="col.id"
+      :label="col.name"
+      header-align="left"
+      sortable
+      :sort-orders="['ascending', 'descending']"
+    >
+    </el-table-column>
+  </el-table>
+  <div v-else class="empty">
+    <span>Нет данных</span>
   </div>
 </template>
 
 <script>
 import { mixin } from '@/utils/mixins';
-import { MODULE, FIELD, ACTION, SUBPANEL } from '@/utils/constants';
+import { ACTION, SUBPANEL } from '@/utils/constants';
 export default {
   mixins: [mixin],
   props: {
@@ -16,8 +34,9 @@ export default {
   },
   data() {
     return {
-      assigned_list: []
-    }
+      assignedList: [],
+      assignedFields: []
+    };
   },
   created() {
     this.$axios
@@ -33,22 +52,26 @@ export default {
       })
       .then(resp => {
         if (resp.data && !resp.data.error) {
-          const list = resp.data.List;
-          console.log(list)
+          const { List, MOD } = resp.data;
+          const tableCols = ['executor_name', 'type', 'typical_responses'];
 
-          // if (comments.length) {
-          //   comments.forEach(comment => {
-          //     this.comments.push({
-          //       id: comment.id.value,
-          //       user_id: comment.created_by.value,
-          //       name: comment.created_by_name.value,
-          //       date_entered: comment.date_entered.value,
-          //       text: this.formatHtml(comment.text.value),
-          //       to_recruits: comment.to_recruits.value,
-          //       avatar: ''
-          //     });
-          //   });
-          // }
+          if (List.hasOwnProperty('length')) {
+            List.forEach(item => {
+              const opt = {};
+              for (let key in item) {
+                const { value, vname, options } = item[key];
+                opt[key] = value && options ? options[value] : value;
+
+                if (tableCols.includes(key)) {
+                  this.assignedFields.push({
+                    id: key,
+                    name: MOD[vname]
+                  });
+                }
+              }
+              this.assignedList.push(opt);
+            });
+          }
         }
       })
       .catch(err =>
@@ -59,6 +82,6 @@ export default {
         )
       )
       .finally(() => this.$emit('set-loading', false));
-  },
-}
+  }
+};
 </script>
