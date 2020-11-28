@@ -184,7 +184,6 @@ this.onmessage = function(e) {
       break;
     case 'exportWAV':
       exportWAV();
-      console.log(2, e, this)
       break;
     case 'clear':
       clear();

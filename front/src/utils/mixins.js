@@ -146,6 +146,7 @@ export const editView = {
     },
     setValue(name, val) {
       this.$set(this.form, name, val);
+      console.log('set value', this.form[name], val)
       this.$refs.form.validateField(name);
     },
     changeOption(name, id_name) {
