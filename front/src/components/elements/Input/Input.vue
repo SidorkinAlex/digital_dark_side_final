@@ -14,8 +14,8 @@
     <i
       v-if="field.type !== FIELD.TYPE.INT"
       slot="suffix"
-      @click="$emit('record-voice', field.name)"
-      class="el-input__icon el-icon-microphone"
+      @click="$emit('recognize', field.name)"
+      :class="['el-input__icon', recordBtnClass]"
     ></i>
   </el-input>
 </template>
@@ -27,7 +27,8 @@ export default {
   mixins: [editView],
   props: {
     field: Object,
-    model: String
+    model: String,
+    recordBtnClass: String
   },
   data() {
     return {

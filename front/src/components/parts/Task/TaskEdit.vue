@@ -32,8 +32,9 @@
                 <InputEl
                   :field="fields.name"
                   :model="form.name"
+                  :record-btn-class="recordBtnClass"
                   @set-value="setValue"
-                  @record-voice="recordVoice"
+                  @recognize="recognizeVoice"
                 >
                 </InputEl>
               </el-form-item>
@@ -312,8 +313,9 @@
                 >
                 </InputEl>
                 <span
-                  @click="recordVoice('description')"
-                  class="el-input__icon el-icon-microphone"
+                  @click="recognizeVoice('description')"
+                  @recognize="recognizeVoice"
+                  :class="['el-input__icon', recordBtnClass]"
                 ></span>
               </el-form-item>
             </el-card>
@@ -324,6 +326,7 @@
   </div>
 </template>
 <script>
+import { DictateService } from 'Parts/speechRecognizer/dictate-service';
 import { mixin, editView } from '@/utils/mixins';
 import { MODULE, FIELD } from '@/utils/constants';
 import SelectEl from 'Elements/Select/SelectEl.vue';
@@ -335,12 +338,18 @@ export default {
   props: {
     fields: Object,
     mod: Object,
-    dateFormat: Object
+    dateFormat: Object,
+    path: String,
+    server: String
   },
   data() {
     return {
       module: MODULE.DIGIT_TASK,
       FIELD,
+      dictateService: null,
+      recordBtnClass: 'el-icon-microphone',
+      textDataBase: '',
+      textData: '',
       form: {},
       rules: {},
       options: {},
@@ -377,6 +386,7 @@ export default {
     };
   },
   created() {
+    this.dictateService = new DictateService(this.server, this.path);
     const format = this.setDateFormat(this.dateFormat);
     this.$set(this.datepicker, 'date', format);
 
@@ -414,8 +424,40 @@ export default {
     }
   },
   methods: {
-    recordVoice(name) {
+    recognizeVoice(name) {
       console.log('record', name);
+      // recognize voice
+      if (!this.dictateService.isInitialized()) {
+        this.dictateService.init({
+          server: this.server,
+          onResults: hyp => {
+            console.log('result', hyp);
+            this.$set(this.form, name, hyp)
+            // this.setValue(name, hyp);
+
+            this.textDataBase = this.textDataBase + hyp + '\n';
+            this.textData = this.textDataBase;
+          },
+          onPartialResults: hyp => {
+            console.log(hyp);
+
+            this.textData = this.textDataBase + hyp;
+          },
+          onError: (code, data) => {
+            console.log(code, data);
+          },
+          onEvent: (code, data) => {
+            console.log(code, data);
+          }
+        });
+        this.recordBtnClass = 'el-icon-turn-off-microphone';
+      } else if (this.dictateService.isRunning()) {
+        this.dictateService.resume();
+        this.recordBtnClass = 'el-icon-turn-off-microphone';
+      } else {
+        this.dictateService.pause();
+        this.recordBtnClass = 'el-icon-microphone';
+      }
     },
     assignedLabel(name) {
       const value = this.form[name];
