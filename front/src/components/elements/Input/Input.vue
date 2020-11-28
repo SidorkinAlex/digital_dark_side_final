@@ -10,7 +10,14 @@
     :placeholder="field.placeholder"
     @change.native="$emit('set-value', field.name, localModel)"
     @input.native="$emit('set-value', field.name, localModel)"
-  ></el-input>
+  >
+    <i
+      v-if="field.type !== FIELD.TYPE.INT"
+      slot="suffix"
+      @click="$emit('record-voice', field.name)"
+      class="el-input__icon el-icon-microphone"
+    ></i>
+  </el-input>
 </template>
 
 <script>
@@ -24,6 +31,7 @@ export default {
   },
   data() {
     return {
+      FIELD,
       localModel: this.model
     };
   },

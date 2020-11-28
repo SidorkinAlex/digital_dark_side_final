@@ -17,8 +17,17 @@
   }
 
   input[type='text'],
-  input[type='number'] {
+  input[type='number'],
+  textarea {
     background: #f0faf8;
+  }
+
+  .el-input--suffix .el-input__inner {
+    padding-right: 40px !important;
+  }
+
+  .el-input--prefix .el-input__inner {
+    padding-left: 40px !important;
   }
 
   .el-form-item.sub-field {
@@ -44,12 +53,31 @@
   &__section > div {
     box-shadow: 0 3px 16px -1px rgba(55, 72, 118, 0.13);
   }
-}
 
-// %card-info {
-//   padding: 0 1em 1em 1em;
-//   box-shadow: -6px 4px 10px 0px rgba($dark-color, 00.42);
-// }
+  .el-icon-microphone,
+  .el-icon-turn-off-microphone {
+    width: 32px;
+    font-size: 18px;
+    color: grey;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #dbe8e6;
+      color: #ff5d5d;
+    }
+  }
+
+  .el-input--suffix.el-textarea + .el-icon-microphone,
+  .el-input--suffix.el-textarea + .el-icon-turn-off-microphone {
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    height: 32px;
+    z-index: 12;
+    line-height: 32px;
+  }
+}
 
 .task-view {
   @extend %crm-font;
@@ -386,18 +414,21 @@
     color: #ff5d5d;
     font-weight: bold;
     margin-right: 10px;
+    font-size: 18px;
   }
 
   .el-icon-bottom {
     color: #12de3e;
     font-weight: bold;
     margin-right: 10px;
+    font-size: 18px;
   }
 
   .el-icon-d-arrow-left {
     color: #ffa344;
     font-weight: bold;
     margin-right: 10px;
+    font-size: 18px;
 
     &.top {
       transform: rotate(90deg);
