@@ -149,6 +149,78 @@ array (
         'default' => true,
         'name' => 'tags_ids',
       ),
+        'digit_workshop_id' =>
+            array(
+                'name' => 'digit_workshop_id',
+                'type' => 'multienum',
+                'studio' => 'visible',
+                'label' => 'LBL_DIGIT_WORKSHOP_NAME',
+                'function' =>
+                    array(
+                        'name' => 'table_list_arr',
+                        'params' =>
+                            array(
+                                0 => 'digit_workshop',
+                                1 =>
+                                    array(
+                                        0 => 'name',
+                                    ),
+                                2 => "",
+                                3 => 'name',
+                            ),
+                    ),
+                'link' => true,
+                'width' => '10%',
+                'default' => true,
+            ),
+        'digit_section_id' =>
+            array(
+                'name' => 'digit_section_id',
+                'type' => 'multienum',
+                'studio' => 'visible',
+                'label' => 'LBL_DIGIT_SECTION_NAME',
+                'function' =>
+                    array(
+                        'name' => 'table_list_arr',
+                        'params' =>
+                            array(
+                                0 => 'digit_section',
+                                1 =>
+                                    array(
+                                        0 => 'name',
+                                    ),
+                                2 => "",
+                                3 => 'name',
+                            ),
+                    ),
+                'link' => true,
+                'width' => '10%',
+                'default' => true,
+            ),
+        'digit_block_id' =>
+            array(
+                'name' => 'digit_block_id',
+                'type' => 'multienum',
+                'studio' => 'visible',
+                'label' => 'LBL_DIGIT_SECTION_NAME',
+                'function' =>
+                    array(
+                        'name' => 'table_list_arr',
+                        'params' =>
+                            array(
+                                0 => 'digit_block',
+                                1 =>
+                                    array(
+                                        0 => 'name',
+                                    ),
+                                2 => "",
+                                3 => 'name',
+                            ),
+                    ),
+                'link' => true,
+                'width' => '10%',
+                'default' => true,
+            ),
     ),
     'advanced_search' => 
     array (
