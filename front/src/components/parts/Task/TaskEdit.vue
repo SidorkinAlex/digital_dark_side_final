@@ -33,6 +33,7 @@
                   :field="fields.name"
                   :model="form.name"
                   :record-btn-class="recordingClass['name']"
+                  :key="updateRecorded"
                   @set-value="setValue"
                   @recognize="recognizeVoice"
                 >
@@ -310,6 +311,7 @@
                   :model="form.description"
                   @set-value="setValue"
                   class="el-input--suffix"
+                  :key="updateRecorded"
                 >
                 </InputEl>
                 <span
@@ -384,7 +386,8 @@ export default {
         'date_plan',
         'date_fact',
         'description'
-      ]
+      ],
+      updateRecorded: 0
     };
   },
   created() {
@@ -435,6 +438,8 @@ export default {
             this.textDataBase = this.textDataBase + ' ' + hyp + '\n';
             this.textData = this.textDataBase;
             this.form = {...this.form, [name]: this.textDataBase}
+            this.updateRecorded++;
+
             // this.$set(this.form, name, this.textDataBase);
             console.log('result', this.form[name], this.textDataBase);
           },
