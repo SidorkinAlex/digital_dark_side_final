@@ -687,6 +687,127 @@ $dictionary['DIGIT_TASK'] = array(
             'len' => '100',
             'size' => '20',
         ),
+
+        //Ответственные assigned
+        'assigned_users_assigned_ids' => array (
+            'name' => 'assigned_users_assigned_ids',
+            'vname' => 'LBL_ASSIGNED_USERS_ASSIGNED_IDS',
+            'type' => 'relate',
+            'massupdate' => 0,
+            'no_default' => false,
+            'comments' => '',
+            'help' => '',
+            'importable' => 'true',
+            'duplicate_merge' => 'disabled',
+            'duplicate_merge_dom_value' => '0',
+            'audited' => false,
+            'inline_edit' => false,
+            'reportable' => true,
+            'unified_search' => false,
+            'merge_filter' => 'disabled',
+            'source' => 'non-db',
+            'rel_link' => 'digit_task_assigned_users_assigned',
+            'table' => 'users',
+            'fields_in_table' => array(
+                'id',
+                'first_name',
+                'last_name',
+            ),
+            'detail_format'=> array('last_name','first_name',),
+            'acl_field' => array(
+                'DetailView'
+            ),
+        ),
+        "digit_task_assigned_users_assigned" => array (
+            'name' => 'digit_task_assigned_users_assigned',
+            'type' => 'link',
+            'relationship' => 'digit_task_assigned_users_assigned',
+            'source' => 'non-db',
+            'module' => 'Users',
+            'bean_name' => 'User',
+            'vname' => 'LBL_DIGIT_TASK_ASSIGNED_USERS_ASSIGNED',
+        ),
+
+        //Ответственные info
+        'assigned_users_info_ids' => array (
+            'name' => 'assigned_users_info_ids',
+            'vname' => 'LBL_ASSIGNED_USERS_INFO_IDS',
+            'type' => 'relate',
+            'massupdate' => 0,
+            'no_default' => false,
+            'comments' => '',
+            'help' => '',
+            'importable' => 'true',
+            'duplicate_merge' => 'disabled',
+            'duplicate_merge_dom_value' => '0',
+            'audited' => false,
+            'inline_edit' => false,
+            'reportable' => true,
+            'unified_search' => false,
+            'merge_filter' => 'disabled',
+            'source' => 'non-db',
+            'rel_link' => 'digit_task_assigned_users_info',
+            'table' => 'users',
+            'fields_in_table' => array(
+                'id',
+                'first_name',
+                'last_name',
+            ),
+            'detail_format'=> array('last_name','first_name',),
+            'acl_field' => array(
+                'DetailView'
+            ),
+        ),
+        "digit_task_assigned_users_info" => array (
+            'name' => 'digit_task_assigned_users_info',
+            'type' => 'link',
+            'relationship' => 'digit_task_assigned_users_info',
+            'source' => 'non-db',
+            'module' => 'Users',
+            'bean_name' => 'User',
+            'vname' => 'LBL_DIGIT_TASK_ASSIGNED_USERS_INFO',
+        ),
+
+        //Ответственные free_form
+        'assigned_users_free_form_ids' => array (
+            'name' => 'assigned_users_free_form_ids',
+            'vname' => 'LBL_ASSIGNED_USERS_FREE_FORM_IDS',
+            'type' => 'relate',
+            'massupdate' => 0,
+            'no_default' => false,
+            'comments' => '',
+            'help' => '',
+            'importable' => 'true',
+            'duplicate_merge' => 'disabled',
+            'duplicate_merge_dom_value' => '0',
+            'audited' => false,
+            'inline_edit' => false,
+            'reportable' => true,
+            'unified_search' => false,
+            'merge_filter' => 'disabled',
+            'source' => 'non-db',
+            'rel_link' => 'digit_task_assigned_users_free_form',
+            'table' => 'users',
+            'fields_in_table' => array(
+                'id',
+                'first_name',
+                'last_name',
+            ),
+            'detail_format'=> array('last_name','first_name',),
+            'acl_field' => array(
+                'DetailView'
+            ),
+        ),
+        "digit_task_assigned_users_free_form" => array (
+            'name' => 'digit_task_assigned_users_free_form',
+            'type' => 'link',
+            'relationship' => 'digit_task_assigned_users_free_form',
+            'source' => 'non-db',
+            'module' => 'Users',
+            'bean_name' => 'User',
+            'vname' => 'LBL_DIGIT_TASK_ASSIGNED_USERS_FREE_FORM',
+        ),
+
     ),
     'relationships' => array (
         'digit_task_users_spectator' =>
@@ -771,6 +892,57 @@ $dictionary['DIGIT_TASK'] = array(
                 'rhs_table' => 'digit_assigned_user',
                 'rhs_key' => 'digit_task_id',
                 'relationship_type' => 'one-to-many',
+                'relationship_role_column' => 'type',
+                'relationship_role_column_value' => 'free_form',
+            ),
+
+        //Ответственные assigned
+        'digit_task_assigned_users_assigned' =>
+            array(
+                'lhs_module' => 'DIGIT_TASK',
+                'lhs_table' => 'digit_task',
+                'lhs_key' => 'id',
+                'rhs_module' => 'Users',
+                'rhs_table' => 'users',
+                'rhs_key' => 'id',
+                'relationship_type' => 'many-to-many',
+                'join_table' => 'digit_assigned_user',
+                'join_key_lhs' => 'digit_task_id',
+                'join_key_rhs' => 'user_id_c',
+                'relationship_role_column' => 'type',
+                'relationship_role_column_value' => 'assigned',
+            ),
+
+        //Ответственные info
+        'digit_task_assigned_users_info' =>
+            array(
+                'lhs_module' => 'DIGIT_TASK',
+                'lhs_table' => 'digit_task',
+                'lhs_key' => 'id',
+                'rhs_module' => 'Users',
+                'rhs_table' => 'users',
+                'rhs_key' => 'id',
+                'relationship_type' => 'many-to-many',
+                'join_table' => 'digit_assigned_user',
+                'join_key_lhs' => 'digit_task_id',
+                'join_key_rhs' => 'user_id_c',
+                'relationship_role_column' => 'type',
+                'relationship_role_column_value' => 'info',
+            ),
+
+        //Ответственные free_form
+        'digit_task_assigned_users_free_form' =>
+            array(
+                'lhs_module' => 'DIGIT_TASK',
+                'lhs_table' => 'digit_task',
+                'lhs_key' => 'id',
+                'rhs_module' => 'Users',
+                'rhs_table' => 'users',
+                'rhs_key' => 'id',
+                'relationship_type' => 'many-to-many',
+                'join_table' => 'digit_assigned_user',
+                'join_key_lhs' => 'digit_task_id',
+                'join_key_rhs' => 'user_id_c',
                 'relationship_role_column' => 'type',
                 'relationship_role_column_value' => 'free_form',
             ),
