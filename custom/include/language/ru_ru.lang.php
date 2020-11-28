@@ -43,3 +43,8 @@ $GLOBALS['app_list_strings']['digit_task_source_list']=array (
   'bitrix' => 'bitrix24',
   'jira' => 'jira',
 );
+
+
+$app_list_strings['digit_tasks_class_list']['assigned'] = 'Постоянные/периодические заявки и поручения';
+$app_list_strings['digit_tasks_class_list']['info'] = 'Информационное сообщение на ознакомление';
+$app_list_strings['digit_tasks_class_list']['free_form'] = 'Поручение';
