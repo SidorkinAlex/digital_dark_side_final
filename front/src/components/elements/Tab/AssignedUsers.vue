@@ -6,6 +6,7 @@
     size="mini"
     align="left"
   >
+    <!-- <el-table-column :prop="assignedUsers" label="Ответственные"></el-table-column> -->
     <el-table-column
       v-for="(col, i) in assignedFields"
       :key="`${col.id}_${i}`"
@@ -15,6 +16,11 @@
       sortable
       :sort-orders="['ascending', 'descending']"
     >
+      <!-- <template slot-scope="scope" v-if="col.id === 'typical_responses'">
+        <el-tag :type="reactions(scope.row.typical_responses)" disable-transitions>
+          {{ scope.row.typical_responses }}
+        </el-tag>
+      </template> -->
     </el-table-column>
   </el-table>
   <div v-else class="empty">
@@ -36,6 +42,7 @@ export default {
     return {
       assignedList: [],
       assignedFields: []
+      // assignedUsers: []
     };
   },
   created() {
@@ -53,7 +60,7 @@ export default {
       .then(resp => {
         if (resp.data && !resp.data.error) {
           const { List, MOD } = resp.data;
-          const tableCols = ['executor_name', 'type', 'typical_responses'];
+          const tableCols = ['executor_name', 'type', 'typical_responses', 'description'];
 
           if (List.hasOwnProperty('length')) {
             List.forEach(item => {
@@ -82,6 +89,16 @@ export default {
         )
       )
       .finally(() => this.$emit('set-loading', false));
+  },
+  methods: {
+    reactions(val) {
+      const colors = {
+        accepted: 'success',
+        done: 'primary',
+        taken_to_work: 'warning'
+      };
+      return colors[val];
+    }
   }
 };
 </script>
