@@ -44,9 +44,28 @@ $dictionary['DIGIT_SECTION'] = array(
     'inline_edit' => true,
     'duplicate_merge' => true,
     'fields' => array (
-),
+        "digit_section_users"  => array(
+            'name'         => 'digit_section_users',
+            'type'         => 'link',
+            'relationship' => 'digit_section_users',
+            'source'       => 'non-db',
+            'module'       => 'Users',
+            'bean_name'    => 'User',
+            'side'         => 'right',
+            'vname'        => 'LBL_DIGIT_SECTION_USERS_REL_TITLE',
+        ),
+    ),
     'relationships' => array (
-),
+        'digit_section_users' => array(
+            'rhs_module'        => 'Users',
+            'rhs_table'         => 'users',
+            'rhs_key'           => 'digit_section_id',
+            'lhs_module'        => 'DIGIT_SECTION',
+            'lhs_table'         => 'digit_section',
+            'lhs_key'           => 'id',
+            'relationship_type' => 'one-to-many',
+        ),
+    ),
     'optimistic_locking' => true,
     'unified_search' => true,
 );

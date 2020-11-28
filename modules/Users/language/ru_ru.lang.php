@@ -757,5 +757,16 @@ $mod_strings = array(
 'LBL_GOOGLE_API_TOKEN_TEXT' => 'Токен доступа',
 'LBL_GSYNC_CAL' => 'Включить синхронизацию с календарём Google',
 // END Google Token/Synchronization settings
-	
+
+    'LBL_DIGIT_WORKSHOP_ID' => 'Цех (ID)',
+    'LBL_DIGIT_WORKSHOP_NAME' => 'Цех',
+    'LBL_DIGIT_SECTION_ID' => 'Участок (ID)',
+    'LBL_DIGIT_SECTION_NAME' => 'Участок',
+    'LBL_DIGIT_BLOCK_ID' => 'Корпус (ID)',
+    'LBL_DIGIT_BLOCK_NAME' => 'Корпус',
+
+
+    'LBL_DIGIT_WORKSHOP_NAME' => 'Исполнители',
+    'LBL_DIGIT_SECTION_NAME' => 'Исполнители',
+
 ); // END STRINGS DEFS
