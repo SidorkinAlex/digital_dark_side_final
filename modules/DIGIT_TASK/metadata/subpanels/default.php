@@ -57,8 +57,24 @@ $subpanel_layout = array(
             'widget_class' => 'SubPanelDetailViewLink',
             'width' => '45%',
         ),
-        'date_modified' => array(
-            'vname' => 'LBL_DATE_MODIFIED',
+        'date_entered' => array(
+            'vname' => 'LBL_DATE_ENTERED',
+            'width' => '45%',
+        ),
+        'date_plan' => array(
+            'vname' => 'LBL_DATE_PLAN',
+            'width' => '45%',
+        ),
+        'date_fact' => array(
+            'vname' => 'LBL_DATE_FACT',
+            'width' => '45%',
+        ),
+        'control' => array(
+            'vname' => 'LBL_CONTROL',
+            'width' => '45%',
+        ),
+        'digit_tasks_class' => array(
+            'vname' => 'LBL_DIGIT_TASKS_CLASS',
             'width' => '45%',
         ),
         'edit_button' => array(

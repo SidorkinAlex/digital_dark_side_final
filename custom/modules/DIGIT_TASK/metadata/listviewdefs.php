@@ -9,73 +9,24 @@ array (
     'default' => true,
     'link' => true,
   ),
-  'DATE_START' => 
+  'DATE_ENTERED' => 
   array (
     'type' => 'datetime',
-    'label' => 'LBL_DATE_START',
+    'label' => 'LBL_DATE_ENTERED',
     'width' => '10%',
     'default' => true,
   ),
-  'DATE_STOP' => 
+  'DATE_PLAN' => 
   array (
-    'type' => 'datetime',
-    'label' => 'LBL_DATE_STOP',
+    'type' => 'datetimecombo',
+    'label' => 'LBL_DATE_PLAN',
     'width' => '10%',
     'default' => true,
   ),
-  'STATUS' => 
+  'DATE_FACT' => 
   array (
-    'type' => 'enum',
-    'label' => 'LBL_STATUS',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'DIGIT_PROJECT_NAME' => 
-  array (
-    'type' => 'relate',
-    'studio' => 'visible',
-    'label' => 'LBL_DIGIT_PROJECT_NAME',
-    'id' => 'DIGIT_PROJECT_ID',
-    'link' => true,
-    'width' => '10%',
-    'default' => true,
-  ),
-  'PRIORITY' => 
-  array (
-    'type' => 'enum',
-    'label' => 'LBL_PRIORITY',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'COMPLEXITY' => 
-  array (
-    'type' => 'enum',
-    'label' => 'LBL_COMPLEXITY',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'SOURCE' => 
-  array (
-    'type' => 'enum',
-    'label' => 'LBL_SOURCE',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'ASSIGNED_USER_NAME' => 
-  array (
-    'width' => '9%',
-    'label' => 'LBL_ASSIGNED_TO_NAME',
-    'module' => 'Employees',
-    'id' => 'ASSIGNED_USER_ID',
-    'default' => true,
-  ),
-  'TASK_MANAGER_NAME' => 
-  array (
-    'type' => 'relate',
-    'studio' => 'visible',
-    'label' => 'LBL_TASK_MANAGER_NAME',
-    'id' => 'USER_ID_C',
-    'link' => true,
+    'type' => 'datetimecombo',
+    'label' => 'LBL_DATE_FACT',
     'width' => '10%',
     'default' => true,
   ),
@@ -85,6 +36,22 @@ array (
     'default' => true,
     'width' => '2%',
     'label' => 'LBL_CONTROL',
+  ),
+  'DIGIT_TASKS_CLASS' => 
+  array (
+    'type' => 'enum',
+    'label' => 'LBL_DIGIT_TASKS_CLASS',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'PARENT_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_PARENT_DIGITAL_TASK_NAME',
+    'id' => 'PARENT_ID',
+    'width' => '10%',
+    'default' => true,
   ),
 );
 ;
