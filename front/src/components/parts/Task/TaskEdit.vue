@@ -424,24 +424,22 @@ export default {
   },
   methods: {
     recognizeVoice(name) {
-      // console.log('record', name);
       // recognize voice
       if (!this.dictateService.isInitialized()) {
         this.dictateService.init({
           server: this.server,
           onResults: hyp => {
-            console.log('result', name, hyp);
-            // this.$set(this.form, name, hyp)
-            this.setValue(name, hyp);
+            console.log('result');
 
             this.textDataBase = this.textDataBase + hyp + '\n';
             this.textData = this.textDataBase;
+            this.setValue(name, this.textData);
           },
           onPartialResults: hyp => {
-            console.log(name, hyp);
-            this.setValue(name, hyp);
+            console.log('partial');
 
             this.textData = this.textDataBase + hyp;
+            this.setValue(name, this.textData);
           },
           onError: (/*code, data*/) => {
             // console.log(code, data);
@@ -455,7 +453,6 @@ export default {
         this.dictateService.resume();
         this.recordBtnClass = 'el-icon-turn-off-microphone';
       } else {
-        console.log('pause');
         this.dictateService.pause();
         this.recordBtnClass = 'el-icon-microphone';
       }

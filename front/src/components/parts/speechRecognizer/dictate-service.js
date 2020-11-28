@@ -165,7 +165,7 @@ export class DictateService {
           // Otherwise it's the EOS tag (string)
         } else {
           this.ws.send(blob);
-          this.config.onEvent(this.MSG_SEND_EOS, 'Send tag: ' + blob);
+          // this.config.onEvent(this.MSG_SEND_EOS, 'Send tag: ' + blob);
         }
       } else {
         this.config.onError(
@@ -249,7 +249,6 @@ export class DictateService {
   initWorker(source) {
     var node = source.context.createScriptProcessor(4096, 1, 1);
     this.worker = new Worker(this.WORKER_PATH);
-    console.log(111, this.worker, typeof this.worker.postMessage, node, Worker, this.worker.__proto__.postMessage)
 
     this.worker.onmessage = e => {
       if (this.paused) return;
