@@ -13,6 +13,24 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="{$baseUrl}/custom/mobile/template/AdminLTE/dist/css/adminlte.min.css">
+    <!-- jQuery -->
+    <script src="{$baseUrl}/custom/mobile/template/AdminLTE/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="{$baseUrl}/custom/mobile/template/AdminLTE/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <script src="{$baseUrl}/custom/mobile/template/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE -->
+    <script src="{$baseUrl}/custom/mobile/template/AdminLTE/dist/js/adminlte.js"></script>
+
+    <!-- OPTIONAL SCRIPTS -->
+    <script src="{$baseUrl}/custom/mobile/template/AdminLTE/plugins/chart.js/Chart.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="{$baseUrl}/custom/mobile/template/AdminLTE/dist/js/demo.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="{$baseUrl}/custom/mobile/template/AdminLTE/dist/js/pages/dashboard3.js"></script>
 </head>
 <!--
 `body` tag options:
@@ -51,23 +69,5 @@
 
 <!-- REQUIRED SCRIPTS -->
 
-<!-- jQuery -->
-<script src="{$baseUrl}/custom/mobile/template/AdminLTE/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="{$baseUrl}/custom/mobile/template/AdminLTE/plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-    $.widget.bridge('uibutton', $.ui.button)
-</script>
-<script src="{$baseUrl}/custom/mobile/template/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE -->
-<script src="{$baseUrl}/custom/mobile/template/AdminLTE/dist/js/adminlte.js"></script>
-
-<!-- OPTIONAL SCRIPTS -->
-<script src="{$baseUrl}/custom/mobile/template/AdminLTE/plugins/chart.js/Chart.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{$baseUrl}/custom/mobile/template/AdminLTE/dist/js/demo.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{$baseUrl}/custom/mobile/template/AdminLTE/dist/js/pages/dashboard3.js"></script>
 </body>
 </html>
