@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard 3</title>
+    <title>Расзработка команды Дарк Сайт</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -44,11 +44,7 @@
 
     <!-- Main Footer -->
     <footer class="main-footer">
-        <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-        All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 3.1.0-pre
-        </div>
+        <strong>Разработка Команды Дарк Сайт для финала Хакатона Цифровой прорыв </a>.</strong>
     </footer>
 </div>
 <!-- ./wrapper -->
@@ -58,6 +54,11 @@
 <!-- jQuery -->
 <script src="{$baseUrl}/custom/mobile/template/AdminLTE/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap -->
+<script src="{$baseUrl}/custom/mobile/template/AdminLTE/plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+    $.widget.bridge('uibutton', $.ui.button)
+</script>
 <script src="{$baseUrl}/custom/mobile/template/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE -->
 <script src="{$baseUrl}/custom/mobile/template/AdminLTE/dist/js/adminlte.js"></script>
