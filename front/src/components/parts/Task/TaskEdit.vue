@@ -440,12 +440,12 @@ export default {
             this.form = {...this.form, [name]: this.textDataBase}
             this.updateRecorded++;
 
-            // this.$set(this.form, name, this.textDataBase);
-            console.log('result', this.form[name], this.textDataBase);
+            console.log('result', this.form[name]);
           },
           onPartialResults: hyp => {
-            // console.log('partial');
             this.textData = this.textDataBase + hyp;
+            this.$set(this.form, name, this.textData);
+            this.updateRecorded++;
           },
           // onError: (/*code, data*/) => {
           //   // console.log(code, data);

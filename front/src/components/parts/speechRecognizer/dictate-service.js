@@ -3,7 +3,7 @@ export class DictateService {
     // Defaults
     this.SERVER = server;
     // Send blocks 4 x per second as recommended in the server doc.
-    this.INTERVAL = 250;
+    this.INTERVAL = 100;
     // Path to worker javascript
     this.WORKER_PATH = path;
 
@@ -32,7 +32,7 @@ export class DictateService {
     this.config = cfg || {};
     this.config.server = this.config.server || this.SERVER;
     this.config.audioSourceId = this.config.audioSourceId;
-    this.config.interval = this.config.interval || this.INTERVAL;
+    this.config.interval = this.INTERVAL;
     this.config.onReadyForSpeech =
       this.config.onReadyForSpeech || function() {};
     this.config.onEndOfSpeech = this.config.onEndOfSpeech || function() {};

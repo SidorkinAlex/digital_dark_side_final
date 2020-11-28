@@ -41,7 +41,6 @@ export default {
   },
   computed: {
     inputType() {
-      console.log(this.field);
       return this.field.type === FIELD.TYPE.INT
         ? 'number'
         : this.field.type === FIELD.TYPE.TEXT
