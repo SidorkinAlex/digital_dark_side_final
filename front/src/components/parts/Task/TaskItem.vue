@@ -5,7 +5,7 @@
         <div class="task-item__left-top">
           <div class="task-item__title">
             <el-tooltip
-              :content="getValue('complexity', '')"
+              :content="`Сложность: ${getValue('complexity', '')}`"
               placement="top-start"
             >
               <level :level="levels[task.complexity.value]"></level>
@@ -14,7 +14,7 @@
               <component
                 :is="task.name.link ? 'el-link' : 's-text'"
                 :type="'primary'"
-                :href="task.name.link"
+                :href="detailRoute"
                 :underline="false"
                 class="task-item__title-link"
               >
@@ -22,21 +22,7 @@
               </component>
             </el-tooltip>
           </div>
-          <!-- <div class="task-item__status" v-if="task.status.value">
-            <el-tooltip content="Статус задачи" placement="top-start">
-              <el-tag :type="colorStatus()" :effect="effect()"
-                >{{ getValue('status', '') }}
-              </el-tag>
-            </el-tooltip>
-          </div> -->
         </div>
-        <!-- <div class="task-item__left-bottom">
-          <div class="vacancy-table-item__project">
-            <component :is="'s-text'" :underline="false">
-              {{ getValue('digit_project_name', '') }}</component
-            >
-          </div>
-        </div> -->
         <div class="task-item__left-bottom">
           <div class="task-item__bottom-item">
             <el-tooltip :content="`Приоритет: ${getValue('priority', '')}`" placement="top-start">
@@ -57,21 +43,6 @@
                 {{ getValue('type', '') }}
               </el-tag>
             </el-tooltip>
-            <span class="task-item__control">
-              <label class="el-form-item__label">Контроль</label>
-              <span :class="checkboxClasses('control')">
-                <span class="el-checkbox__inner"></span>
-                <input
-                  type="checkbox"
-                  readonly
-                  aria-hidden="false"
-                  true-value="1"
-                  false-value="0"
-                  :value="task.control.value"
-                  class="el-checkbox__original"
-                />
-              </span>
-            </span>
           </div>
         </div>
         <div class="task-item__bottom-item task-item__dates">
@@ -168,11 +139,8 @@ export default {
         'high': 'el-icon-warning'
       },
       bodyKeys: [
-        'capacity',
-        'digit_project_name',
-        'source',
         'parent_name',
-        // 'spectators_ids',
+        'digit_tasks_class',
         'task_manager_name',
         'assigned_user_name'
       ],
@@ -184,6 +152,9 @@ export default {
     colorType() {
       const type = this.getValue('type', '');
       return types_colors[type] || '';
+    },
+    detailRoute() {
+      return location.href;
     },
     mainInfo() {
       let body = [];
