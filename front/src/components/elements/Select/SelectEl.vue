@@ -70,6 +70,7 @@ export default {
       } else {
         // this.callback.field.change(this.field, this.localModel);
       }
+      // digit_tasks_class
     }
   }
 };

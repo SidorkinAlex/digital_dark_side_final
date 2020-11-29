@@ -88,36 +88,38 @@
           </div>
           <div class="task-form__section">
             <h3>Участники</h3>
-            <div class="el-form-item sub-field">
-              <el-form-item
-                class="row"
-                prop="assigned_user_name"
-                :label="mod[fields.assigned_user_name.vname]"
-              >
-                <SelectEl
-                  :model="form.assigned_user_name"
-                  :field="fields.assigned_user_name"
-                  :options="options.assigned_user_name"
-                  @change-option="changeOption"
-                  @set-value="setValue"
+            <el-card>
+              <div class="el-form-item sub-field">
+                <el-form-item
+                  class="row"
+                  prop="assigned_user_name"
+                  :label="mod[fields.assigned_user_name.vname]"
                 >
-                </SelectEl>
-              </el-form-item>
-              <el-form-item
-                class="row"
-                prop="task_manager_name"
-                :label="mod[fields.task_manager_name.vname]"
-              >
-                <SelectEl
-                  :model="form.task_manager_name"
-                  :field="fields.task_manager_name"
-                  :options="options.task_manager_name"
-                  @change-option="changeOption"
-                  @set-value="setValue"
+                  <SelectEl
+                    :model="form.assigned_user_name"
+                    :field="fields.assigned_user_name"
+                    :options="options.assigned_user_name"
+                    @change-option="changeOption"
+                    @set-value="setValue"
+                  >
+                  </SelectEl>
+                </el-form-item>
+                <el-form-item
+                  class="row"
+                  prop="task_manager_name"
+                  :label="mod[fields.task_manager_name.vname]"
                 >
-                </SelectEl>
-              </el-form-item>
-            </div>
+                  <SelectEl
+                    :model="form.task_manager_name"
+                    :field="fields.task_manager_name"
+                    :options="options.task_manager_name"
+                    @change-option="changeOption"
+                    @set-value="setValue"
+                  >
+                  </SelectEl>
+                </el-form-item>
+              </div>
+            </el-card>
           </div>
           <div class="task-form__section">
             <h3>Детали задачи</h3>

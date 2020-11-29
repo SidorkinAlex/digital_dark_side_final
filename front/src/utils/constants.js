@@ -18,6 +18,7 @@ export const FIELD = {
     DIGIT_BLOCK_NAME: 'digit_block_name',
     DIGIT_SECTION_NAME: 'digit_section_name',
     DIGIT_WORKSHOP_NAME: 'digit_workshop_name',
+    DIGIT_TASKS_CLASS: 'digit_tasks_class',
     PRIORITY: 'priority',
     COMPLEXITY: 'complexity',
     STATUS: 'status',

@@ -16,6 +16,11 @@
     }
   }
 
+  .el-button {
+    float: left;
+    margin-right: 5px;
+  }
+
   input[type='text'],
   input[type='number'],
   .el-select__input,
@@ -38,6 +43,72 @@
   .el-form-item--small.el-form-item {
     margin: 0;
     padding: 10px;
+  }
+
+  @media screen and (max-width: 360px) {
+    h2 {
+      width: 100%;
+    }
+
+    h2 a {
+      display: block;
+    }
+
+    h3 {
+      text-align: center;
+    }
+
+    .task-form {
+      padding: 30px 5px;
+    }
+
+    .el-card {
+      display: block;
+      padding: 0 5px;
+    }
+
+    .el-card__body {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    .el-form-item.row {
+      display: grid;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    .el-form-item.sub-field {
+      display: block;
+    }
+
+    .el-form-item__label-wrap {
+      margin: 0 !important;
+      justify-content: flex-start;
+    }
+
+    .el-form-item__label-wrap .el-form-item__label {
+      display: inline-block;
+      float: none;
+    }
+
+    .el-form-item--small .el-form-item__content {
+      line-height: 32px;
+      margin: 0 !important;
+      display: grid;
+    }
+
+    .el-form-item--small.el-form-item {
+      display: grid;
+    }
+
+    .el-form-item.el-form-item--feedback.el-form-item--small {
+      padding: 10px 0;
+    }
+
+    label.el-form-item__label {
+      text-align: left;
+    }
   }
 }
 
