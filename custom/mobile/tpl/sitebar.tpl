@@ -63,11 +63,11 @@
                     {*</ul>*}
                 </li>
                 <li class="nav-item">
-                    <a href="{$baseUrl}/entryPoint/mobile/?module=Digit&action=index" class="nav-link">
+                    <a href="{$baseUrl}/entryPoint/mobile/?module=DIGIT_TASK&action=edit&record=" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Задачи
-                            <span class="right badge badge-danger">New</span>
+                            Создать Задачу
+                            <span class="right badge badge-danger">+</span>
                         </p>
                     </a>
                 </li>
