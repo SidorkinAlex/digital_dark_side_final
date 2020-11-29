@@ -17,10 +17,14 @@
       :sort-orders="['ascending', 'descending']"
     >
       <template slot-scope="scope">
-        <el-tag v-if="col.id === 'typical_responses'" :type="reactions(scope.row.typical_responses)" disable-transitions>
-          {{ scope.row.typical_responses }}
+        <el-tag
+          v-if="col.id === 'typical_responses' && scope.row.typical_responses"
+          :type="reactions(scope.row[col.id])"
+          disable-transitions
+        >
+          {{ scope.row[col.id] }}
         </el-tag>
-        <span v-else>{{ col.name }}</span>
+        <span v-else>{{ scope.row[col.id] }}</span>
       </template>
     </el-table-column>
   </el-table>
@@ -61,16 +65,21 @@ export default {
       .then(resp => {
         if (resp.data && !resp.data.error) {
           const { List, MOD } = resp.data;
-          const tableCols = ['executor_name', 'type', 'typical_responses', 'description'];
+          const tableCols = [
+            'executor_name',
+            'type',
+            'typical_responses',
+            'description'
+          ];
 
           if (List.hasOwnProperty('length')) {
-            List.forEach(item => {
+            List.forEach((item, i) => {
               const opt = {};
               for (let key in item) {
                 const { value, vname, options } = item[key];
                 opt[key] = value && options ? options[value] : value;
 
-                if (tableCols.includes(key)) {
+                if (tableCols.includes(key) && !i) {
                   this.assignedFields.push({
                     id: key,
                     name: MOD[vname]
