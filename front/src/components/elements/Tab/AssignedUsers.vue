@@ -16,11 +16,12 @@
       sortable
       :sort-orders="['ascending', 'descending']"
     >
-      <!-- <template slot-scope="scope" v-if="col.id === 'typical_responses'">
-        <el-tag :type="reactions(scope.row.typical_responses)" disable-transitions>
+      <template slot-scope="scope">
+        <el-tag v-if="col.id === 'typical_responses'" :type="reactions(scope.row.typical_responses)" disable-transitions>
           {{ scope.row.typical_responses }}
         </el-tag>
-      </template> -->
+        <span v-else>{{ col.name }}</span>
+      </template>
     </el-table-column>
   </el-table>
   <div v-else class="empty">
