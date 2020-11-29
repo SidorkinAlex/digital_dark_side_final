@@ -109,6 +109,10 @@
     label.el-form-item__label {
       text-align: left;
     }
+
+    .el-dialog {
+      width: 95%;
+    }
   }
 }
 
@@ -117,7 +121,8 @@
   margin: 0 auto;
 }
 
-.favorite {
+.favorite,
+span#mceu_27 {
   display: none;
 }
 
@@ -246,6 +251,76 @@
       .el-checkbox {
         display: none;
       }
+    }
+  }
+
+  @media screen and (max-width: 360px) {
+    div#bootstrap-container {
+      margin-top: 110px;
+    }
+
+    .task-view__main {
+      flex-direction: column;
+    }
+
+    .task-view__comments,
+    .task-view__info {
+      width: 100%;
+    }
+
+    .task-view__info {
+      margin-bottom: 15px;
+    }
+
+    .el-form-item.is-error .mce-tinymce ~ .el-form-item__error {
+      top: -330px;
+    }
+
+    .el-dialog {
+      width: 95%;
+    }
+
+    .inline-buttons {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    .task-item__top {
+      flex-direction: column;
+    }
+
+    .task-item__left {
+      width: 100%;
+      margin: 0;
+      margin-bottom: 10px;
+    }
+
+    .task-item__left-top {
+      margin-bottom: 10px;
+    }
+
+    .task-item__bottom-item {
+      justify-content: space-around;
+    }
+
+    .task-item__dates {
+      margin-top: 6px;
+      font-size: 11px;
+    }
+
+    .task-item__medium {
+      font-size: 13px;
+    }
+
+    .task-item__medium,
+    .task-item__medium-value:nth-child(odd),
+    .task-item__medium-value {
+      margin: 0;
+    }
+
+    .task-item__medium-value {
+      width: 100%;
+      margin-bottom: 10px !important;
     }
   }
 }
