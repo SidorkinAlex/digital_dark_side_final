@@ -23,6 +23,13 @@ class ControllerMob
     {
        $this->view->show();
     }
+
+    public function detail_action(){
+        $this->view->show();
+    }
+    public function edit_action(){
+        $this->view->show();
+    }
     public function index_DetailView()
     {
         //просмотр по умолчанию

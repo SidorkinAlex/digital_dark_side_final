@@ -42,9 +42,11 @@
 <body onMouseOut="closeMenus();">
 
 {if $AUTHENTICATED}
+    {if !$smarty.request.nonheader}
     <div id="ajaxHeader">
         {include file="themes/SuiteP/tpls/_headerModuleList.tpl"}
     </div>
+        {/if}
 {/if}
 {literal}
     <iframe id='ajaxUI-history-iframe' src='index.php?entryPoint=getImage&imageName=blank.png' title='empty'
