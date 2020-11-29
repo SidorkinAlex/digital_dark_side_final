@@ -60,14 +60,14 @@ class MobileDashbord{
         global $db;
         global $timedate;
         $sql="
-        SELECT `dt`.name ,`dt`.`date_plan`, `dau`.id as `digit_assigned_user_id`, `dt`.id as `digit_task_id`
+        SELECT `dt`.name ,`dt`.`date_plan`, `dt`.id as `digit_assigned_user_id`, `dt`.id as `digit_task_id`, `dt`.`priority`
         FROM `digit_task` `dt`
         Inner JOIN `digit_assigned_user` `dau` on `dau`.`digit_task_id`=`dt`.`id` AND `dt`.`deleted`='0'
         WHERE 
         `dau`.`deleted`='0'
         AND `dau`.`user_id_c` = '{$current_user->id}'
         AND ( `dau`.typical_responses ='' OR `dau`.typical_responses IS NULL )
-        ORDER BY `dt`.date_plan ASC 
+        ORDER BY `dt`.priority ASC ,`dt`.`date_plan` ASC
         ";
         //print_array($sql);
         $data_info=[];
@@ -98,8 +98,7 @@ class MobileDashbord{
             }
             $data_info[]=$row;
         }
-        $ss->assign('data_info',$data_info);
-        return $ss->fetch(COREDIR.'custom/include/custom_tpl/digit_assigned_user_info.tpl');
+        $ss->assign('digit_task_list',$data_info);
+        return $ss->fetch(COREDIR.'custom/include/custom_tpl/digit_task.tpl');
     }
-
 }

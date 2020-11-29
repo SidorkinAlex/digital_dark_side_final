@@ -11,7 +11,9 @@ class indexViewHome extends indexView{
     public function process()
     {
         $data_info=MobileDashbord::digit_assigned_user_info();
+        $data_task=MobileDashbord::digit_task_show();
         $this->contentBox->assign('data_info_end',$data_info);
+        $this->contentBox->assign('data_task',$data_task);
 
     }
 }
