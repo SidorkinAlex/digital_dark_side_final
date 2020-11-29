@@ -24,7 +24,7 @@
             {foreach from=$digit_task_list key=row item=data_row}
             <tr>
                 <td>
-                    <a href="entryPoint/mobile/?module=DIGIT_TASK&action=DetailView&record={$data_row.id}">{$data_row.name}</a>
+                    <a href="?module=DIGIT_TASK&action=detail&record={$data_row.digit_task_id}">{$data_row.name}</a>
                 </td>
                 <td>{$data_row.priority}</td>
                 <td>
